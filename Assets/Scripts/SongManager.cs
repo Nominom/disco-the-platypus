@@ -1,5 +1,8 @@
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class SongManager : MonoBehaviour
 {
@@ -21,19 +24,25 @@ public class SongManager : MonoBehaviour
     public float metronomeVolume = 1f;
 
     private int currentSpawnNote = 0;
-    private int currentPlayNote = 0;
 
     [Header("Game Settings")] 
     public float globalAudioOffset;
     public float perfectTiming = 0.1f;
-    public float goodTiming = 0.15f;
+    public float niceTiming = 0.15f;
     public float missTiming = 0.3f;
+    
+    
+    private float halfPerfectTiming => perfectTiming * 0.5f;
+    private float halfNiceTiming => niceTiming * 0.5f;
+    private float halfMissTiming => missTiming * 0.5f;
+    
+    private HashSet<int> processedNotes  = new HashSet<int>();
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         Instance = this;
-
+        
         if (SongSelector.Instance)
             StartCoroutine(PlaySong(SongSelector.Instance.CurrentSong));
         else
@@ -52,35 +61,60 @@ public class SongManager : MonoBehaviour
         audioSource.Play();
         songTime = 0;
         
-        float noteSpawnOffsetInSongTime = (spawn.transform.position.z - triggerPoint.position.z) / song.notesSpeed;
+        float noteSpawnOffsetInSongTime = Mathf.Abs(spawn.transform.position.z - triggerPoint.position.z) / song.notesSpeed;
 
         int lastBeat = -1;
 
         while (audioSource.isPlaying)
         {
             float beatInterval = 60f / Mathf.Max(1, song.bpm);
-            songTime = audioSource.time;
+            songTime = audioSource.time - (song.bpmOffset * beatInterval);
+            
+            int currentBeat = Mathf.FloorToInt((songTime) / beatInterval);
 
             if (currentSpawnNote < song.notes.Count)
             {
                 var note  = song.notes[currentSpawnNote];
-                if (songTime >= note.beat * beatInterval - noteSpawnOffsetInSongTime)
+                float noteTime = note.beat * beatInterval;
+                if (songTime >= noteTime - noteSpawnOffsetInSongTime)
                 {
-                    Debug.Log($"SPAWN: songTime: {songTime}, spawnTime: {note.beat * beatInterval}, offset: {noteSpawnOffsetInSongTime}");
+                    Debug.Log($"SPAWN: spawnTime: {songTime}, noteTime: {note.beat * beatInterval}, offset: {noteSpawnOffsetInSongTime}");
                     noteSpawner.SpawnNote(currentSpawnNote, note);
                     currentSpawnNote++;
                 }
             }
 
-            if (currentPlayNote < song.notes.Count)
+            NoteDef[] currentBeatNotes = song.notes.Where(x => (x.beat == currentBeat || x.beat == currentBeat + 1) && !processedNotes.Contains(x.index)).ToArray();
+
+            var input = DanceInput.GetInputPressed();
+            if (input != InputDir.None)
             {
-                var note  = song.notes[currentPlayNote];
-                Debug.Log($"PLAY: songTime: {songTime}, spawnTime: {note.beat * beatInterval}, offset: {noteSpawnOffsetInSongTime}");
-                
+                Debug.Log($"{input.ToString()} at time: {songTime}");
+            }
+            foreach (var note in currentBeatNotes)
+            {
+                float noteTime = note.beat * beatInterval;
+                // Debug.Log($"Note time:{noteTime} song {songTime}");
+                if (songTime > noteTime + halfMissTiming)
+                {
+                    TriggerBeat(note.index, BeatHitType.Miss);
+                }else if (songTime > noteTime - halfMissTiming)
+                {
+                    
+                    if (input.MatchesNote(note.noteDir))
+                    {
+                        float hitOffset = Mathf.Abs(songTime - noteTime);
+                        if (hitOffset < halfPerfectTiming)
+                            TriggerBeat(note.index, BeatHitType.Perfect);
+                        else if (hitOffset < halfNiceTiming)
+                            TriggerBeat(note.index, BeatHitType.Nice);
+                        else
+                            TriggerBeat(note.index, BeatHitType.Good);
+                    }
+                }
             }
             
-            int currentBeat = Mathf.FloorToInt((songTime + (song.bpmOffset * beatInterval)) / beatInterval);
-            if (currentBeat != lastBeat)
+            if (currentBeat >= 0 && currentBeat != lastBeat)
             {
                 lastBeat = currentBeat;
                 if (metronomeEnabled)
@@ -90,6 +124,12 @@ public class SongManager : MonoBehaviour
             }
             yield return null;
         }
+    }
+
+    private void TriggerBeat(int index, BeatHitType hit)
+    {
+        Debug.Log($"PLAY: index: {index}, hitType: {hit}, songTime: {songTime}");
+        processedNotes.Add(index);
     }
 
     private void PlayMetronomeTick(int currentBeat)

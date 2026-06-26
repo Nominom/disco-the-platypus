@@ -16,44 +16,52 @@ MonoBehaviour:
   songClip: {fileID: 8300000, guid: 81fad60fcdcd941f69e2d13e8df22875, type: 3}
   notesSpeed: 4
   bpm: 122
-  bpmOffset: 3
+  bpmOffset: 1
   notes:
-  - beat: 20
+  - index: 0
+    beat: 20
     subBeat: 0
     noteType: 0
     noteDir: 0
     length: 0
-  - beat: 21
+  - index: 1
+    beat: 21
     subBeat: 0
     noteType: 0
     noteDir: 1
     length: 0
-  - beat: 22
+  - index: 2
+    beat: 22
     subBeat: 0
     noteType: 0
     noteDir: 2
     length: 0
-  - beat: 23
+  - index: 3
+    beat: 23
     subBeat: 0
     noteType: 0
     noteDir: 3
     length: 0
-  - beat: 30
+  - index: 4
+    beat: 30
     subBeat: 0
     noteType: 0
     noteDir: 0
     length: 0
-  - beat: 30
+  - index: 5
+    beat: 30
     subBeat: 0
     noteType: 0
     noteDir: 3
     length: 0
-  - beat: 31
+  - index: 6
+    beat: 31
     subBeat: 0
     noteType: 0
     noteDir: 1
     length: 0
-  - beat: 31
+  - index: 7
+    beat: 31
     subBeat: 0
     noteType: 0
     noteDir: 2

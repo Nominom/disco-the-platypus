@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,4 +11,12 @@ public class SongScObj : ScriptableObject
     public int bpm = 100;
     public float bpmOffset;
     public List<NoteDef> notes;
+
+    private void OnValidate()
+    {
+        for (int i = 0; i < notes.Count; i++)
+        {
+            notes[i].index = i;
+        }
+    }
 }

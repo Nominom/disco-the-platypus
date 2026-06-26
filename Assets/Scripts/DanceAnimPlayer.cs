@@ -4,34 +4,35 @@ using UnityEngine.InputSystem;
 
 public class DanceAnimPlayer : MonoBehaviour
 {
-    private InputAction DanceInputAction;
     
     private Animator anim;
     void Start()
     {
         anim = GetComponent<Animator>();
 
-        DanceInputAction = InputSystem.actions.FindAction("Move");
     }
 
     private void Update()
     {
-        if (DanceInputAction.ReadValue<Vector2>().x > 0.1f)
+        var input = DanceInput.GetInputPressed();
+        return;
+        
+        if ((input & InputDir.Right) != 0)
         {
             anim.Play("DanceInputRight");
         }
         
-        if (DanceInputAction.ReadValue<Vector2>().x < -0.1f)
+        if ((input & InputDir.Left) != 0)
         {
             anim.Play("DanceInputLeft");
         }
         
-        if (DanceInputAction.ReadValue<Vector2>().y > 0.1f)
+        if ((input & InputDir.Up) != 0)
         {
             anim.Play("DanceInputUp");
         }
 
-        if (DanceInputAction.ReadValue<Vector2>().y < -0.1f)
+        if ((input & InputDir.Down) != 0)
         {
             anim.Play("DanceInputDown");
         }
