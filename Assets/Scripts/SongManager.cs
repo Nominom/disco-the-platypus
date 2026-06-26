@@ -19,6 +19,8 @@ public class SongManager : MonoBehaviour
     void Start()
     {
         Instance = this;
+
+        StartCoroutine(PlaySong(SongSelector.Instance.CurrentSong));
     }
 
     private IEnumerator PlaySong(SongScObj song)

@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: Test2
   m_EditorClassIdentifier: Assembly-CSharp::SongScObj
   songName: Mau
-  songClip: {fileID: 0}
+  songClip: {fileID: 8300000, guid: 83a0786a6ae5b4c128323e1889ccac74, type: 3}
   notesSpeed: 1
+  bpm: 100
+  notes: []
