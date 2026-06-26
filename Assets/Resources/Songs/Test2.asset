@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 52d96a737827451b992085196d90eb1d, type: 3}
-  m_Name: Test1
+  m_Name: Test2
   m_EditorClassIdentifier: Assembly-CSharp::SongScObj
-  songName: Meow
+  songName: Mau
   songClip: {fileID: 0}
   notesSpeed: 1
