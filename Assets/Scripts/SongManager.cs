@@ -10,7 +10,8 @@ public class SongManager : MonoBehaviour
 
     [Header("Metronome")]
     public bool metronomeEnabled;
-    public AudioClip metronomeClip;
+    public AudioClip metronomeClipHigh;
+    public AudioClip metronomeClipLow;
     public AudioSource metronomeSource;
     [Range(0f, 1f)]
     public float metronomeVolume = 1f;
@@ -48,19 +49,20 @@ public class SongManager : MonoBehaviour
                 lastBeat = currentBeat;
                 if (metronomeEnabled)
                 {
-                    PlayMetronomeTick();
+                    PlayMetronomeTick(currentBeat);
                 }
             }
             yield return null;
         }
     }
 
-    private void PlayMetronomeTick()
+    private void PlayMetronomeTick(int currentBeat)
     {
-        if (metronomeClip == null)
+        if (metronomeClipHigh == null || metronomeClipLow == null)
         {
             return;
         }
+        var metronomeClip = currentBeat % 4 == 0 ? metronomeClipHigh : metronomeClipLow;
 
         AudioSource source = metronomeSource != null ? metronomeSource : audioSource;
         source.PlayOneShot(metronomeClip, metronomeVolume);

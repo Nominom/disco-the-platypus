@@ -385,7 +385,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -482,10 +482,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SongManager
   audioSource: {fileID: 525274472}
-  currentSong: {fileID: 0}
+  currentSong: {fileID: 11400000, guid: 2fbeb647059a8a4f29b80dd000b2b448, type: 2}
   songTime: 0
   metronomeEnabled: 1
-  metronomeClip: {fileID: 0}
+  metronomeClipHigh: {fileID: 8300000, guid: f92dd3bcd6c12d12b98dfa55132d8e8f, type: 3}
+  metronomeClipLow: {fileID: 8300000, guid: 99e446ddc2014ec6ba270a744395769f, type: 3}
   metronomeSource: {fileID: 525274471}
   metronomeVolume: 1
 --- !u!4 &525274474
