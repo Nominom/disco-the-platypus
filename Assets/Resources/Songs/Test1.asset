@@ -15,3 +15,45 @@ MonoBehaviour:
   songName: Meow
   songClip: {fileID: 0}
   notesSpeed: 1
+  bpm: 100
+  notes:
+  - beat: 20
+    subBeat: 0
+    noteType: 0
+    noteDir: 0
+    length: 0
+  - beat: 21
+    subBeat: 0
+    noteType: 0
+    noteDir: 1
+    length: 0
+  - beat: 22
+    subBeat: 0
+    noteType: 0
+    noteDir: 2
+    length: 0
+  - beat: 23
+    subBeat: 0
+    noteType: 0
+    noteDir: 3
+    length: 0
+  - beat: 30
+    subBeat: 0
+    noteType: 0
+    noteDir: 0
+    length: 0
+  - beat: 30
+    subBeat: 0
+    noteType: 0
+    noteDir: 3
+    length: 0
+  - beat: 31
+    subBeat: 0
+    noteType: 0
+    noteDir: 1
+    length: 0
+  - beat: 31
+    subBeat: 0
+    noteType: 0
+    noteDir: 2
+    length: 0

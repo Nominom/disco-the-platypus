@@ -18,6 +18,7 @@ public class NoteScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        float moveAmount = SongManager.Instance.currentSong.notesSpeed * Time.deltaTime;
+        transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - moveAmount);
     }
 }
