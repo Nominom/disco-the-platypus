@@ -8,6 +8,6 @@ public class SongScObj : ScriptableObject
     public AudioClip songClip;
     public float notesSpeed = 1f;
     public int bpm = 100;
-
+    public float bpmOffset;
     public List<NoteDef> notes;
 }

@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SongScObj
   songName: Meow
   songClip: {fileID: 8300000, guid: 81fad60fcdcd941f69e2d13e8df22875, type: 3}
-  notesSpeed: 1
-  bpm: 100
+  notesSpeed: 4
+  bpm: 122
+  bpmOffset: 3
   notes:
   - beat: 20
     subBeat: 0

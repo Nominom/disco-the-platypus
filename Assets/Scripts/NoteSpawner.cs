@@ -11,5 +11,7 @@ public class NoteSpawner : MonoBehaviour
         var go = Instantiate(notePrefab, spawn.position, spawn.rotation);
         go.GetComponent<NoteScript>().Initialize(index, noteType, dir, length);
     }
+
+    public void SpawnNote(int index, NoteDef note) => SpawnNote(index, note.noteType, note.noteDir, note.length);
 }
  
