@@ -1105,6 +1105,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5120165822407510315}
     - target: {fileID: 5997406826854144139, guid: e8bbf66526ff54da0a3e9217105cc422, type: 3}
+      propertyPath: badNoteVfx
+      value: 
+      objectReference: {fileID: 6926298199990585615, guid: f4362ef97052386ed92953f52e1f661c, type: 3}
+    - target: {fileID: 5997406826854144139, guid: e8bbf66526ff54da0a3e9217105cc422, type: 3}
+      propertyPath: goodNoteVfx
+      value: 
+      objectReference: {fileID: 3692374320856600194, guid: 8bfd210828455f4dda05b355cba0de42, type: 3}
+    - target: {fileID: 5997406826854144139, guid: e8bbf66526ff54da0a3e9217105cc422, type: 3}
       propertyPath: noteSpawner
       value: 
       objectReference: {fileID: 5120165822407510314}

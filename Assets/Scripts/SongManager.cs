@@ -41,6 +41,9 @@ public class SongManager : MonoBehaviour
     private HashSet<int> processedNotes  = new HashSet<int>();
     private int _score = 0;
 
+    public GameObject goodNoteVfx;
+    public GameObject badNoteVfx;
+
     public int Score
     {
         get => _score;
@@ -361,6 +364,10 @@ public class SongManager : MonoBehaviour
             return;
         }
         
+        noteSpawner.spawnedNotes.TryGetValue(index, out NoteScript noteScript);
+
+        
+        
         processedNotes.Add(index);
         switch (hit)
         {
@@ -382,6 +389,22 @@ public class SongManager : MonoBehaviour
             Combo++;
             GameUI.Instance.UpdateScore(Score);
             NiceUI.Instance.SpawnNice(hit);
+            
+            if (noteScript)
+            {
+                Vector3 pos = noteScript.transform.position;
+                pos.z = triggerPoint.position.z;
+                Instantiate(goodNoteVfx, pos + new Vector3(0, 0.15f,0), noteScript.transform.rotation);
+            }
+        }
+        else
+        {
+            if (noteScript)
+            {
+                Vector3 pos = noteScript.transform.position;
+                pos.z = triggerPoint.position.z;
+                Instantiate(badNoteVfx, pos+ new Vector3(0, 0.15f,0), noteScript.transform.rotation);
+            }
         }
     }
 
