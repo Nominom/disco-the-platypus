@@ -9,7 +9,7 @@ public class InputVisualizer : MonoBehaviour
     
     private void Update()
     {
-        if (DanceInput.GetInputPressed() == InputDir.Up || DanceInput.GetInputHeld() == InputDir.Up)
+        if (DanceInput.GetInputHeld().MatchesNote(NoteDir.Up))
         {
             InputUpIndicator.SetActive(true);
         }
@@ -18,7 +18,7 @@ public class InputVisualizer : MonoBehaviour
             InputUpIndicator.SetActive(false);
         }
         
-        if (DanceInput.GetInputPressed() == InputDir.Down || DanceInput.GetInputHeld() == InputDir.Down)
+        if (DanceInput.GetInputHeld().MatchesNote(NoteDir.Down))
         {
             InputDownIndicator.SetActive(true);
         }
@@ -27,7 +27,7 @@ public class InputVisualizer : MonoBehaviour
             InputDownIndicator.SetActive(false);
         }
         
-        if (DanceInput.GetInputPressed() == InputDir.Left || DanceInput.GetInputHeld() == InputDir.Left)
+        if (DanceInput.GetInputHeld().MatchesNote(NoteDir.Left))
         {
             InputLeftIndicator.SetActive(true);
         }
@@ -36,7 +36,7 @@ public class InputVisualizer : MonoBehaviour
             InputLeftIndicator.SetActive(false);
         }
         
-        if (DanceInput.GetInputPressed() == InputDir.Right || DanceInput.GetInputHeld() == InputDir.Right)
+        if (DanceInput.GetInputHeld().MatchesNote(NoteDir.Right))
         {
             InputRightIndicator.SetActive(true);
         }

@@ -735,6 +735,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43b03b9a40580407eb9c1501a4b672a9, type: 3}
+--- !u!1001 &1502723536375511411
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2393813432047395223, guid: e0b108c398cf0451588bebbe98999674, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2393813432047395223, guid: e0b108c398cf0451588bebbe98999674, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2393813432047395223, guid: e0b108c398cf0451588bebbe98999674, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2393813432047395223, guid: e0b108c398cf0451588bebbe98999674, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2393813432047395223, guid: e0b108c398cf0451588bebbe98999674, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2393813432047395223, guid: e0b108c398cf0451588bebbe98999674, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2393813432047395223, guid: e0b108c398cf0451588bebbe98999674, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2393813432047395223, guid: e0b108c398cf0451588bebbe98999674, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2393813432047395223, guid: e0b108c398cf0451588bebbe98999674, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2393813432047395223, guid: e0b108c398cf0451588bebbe98999674, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8410532063766890974, guid: e0b108c398cf0451588bebbe98999674, type: 3}
+      propertyPath: m_Name
+      value: DiscoBallSpawner
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e0b108c398cf0451588bebbe98999674, type: 3}
 --- !u!1001 &2225175588382758587
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -967,3 +1024,4 @@ SceneRoots:
   - {fileID: 4327838298929563807}
   - {fileID: 652553367299225545}
   - {fileID: 1270355468}
+  - {fileID: 1502723536375511411}

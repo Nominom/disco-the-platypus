@@ -162,4 +162,9 @@ public class SongManager : MonoBehaviour
         AudioSource source = metronomeSource != null ? metronomeSource : audioSource;
         source.PlayOneShot(metronomeClip, metronomeVolume);
     }
+
+    public int GetCurrentScore()
+    {
+        return Score;
+    }
 }
