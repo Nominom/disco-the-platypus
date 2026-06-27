@@ -129,3 +129,7 @@ MonoBehaviour:
   noteType: 0
   dir: 0
   length: 0
+  upMat: {fileID: 2100000, guid: 4dd6037f0df2f9b968a7397ef1985fb8, type: 2}
+  downMat: {fileID: 2100000, guid: 1e8cbaf7c5f3f3568b0d29b2fafdbff4, type: 2}
+  leftMat: {fileID: 2100000, guid: 12a8db578df1f454f935d050a35acc9e, type: 2}
+  rightMat: {fileID: 2100000, guid: 4c2ae90d62e0a433db44a465e08b382f, type: 2}
