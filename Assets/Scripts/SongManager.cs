@@ -95,6 +95,8 @@ public class SongManager : MonoBehaviour
         playPauseAction = InputSystem.actions.FindAction("Play");
         eraseAction = InputSystem.actions.FindAction("Erase");
         rewindAction = InputSystem.actions.FindAction("Rewind");
+        
+        metronomeEnabled = PlayerPrefs.GetInt("Metronome", 1) == 1;
 
         if (recordingMode)
         {
