@@ -125,3 +125,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53553b7d9c27a435c97134b6bb96fb94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  RainbowMat: {fileID: 0}

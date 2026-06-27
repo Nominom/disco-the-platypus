@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Stage
-  m_Shader: {fileID: -6465566751694194690, guid: 6badda89006851c35826834f6b0d8831, type: 3}
+  m_Name: StageLine
+  m_Shader: {fileID: -6465566751694194690, guid: 73726927e60a3be28b167309ff430eaf, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
@@ -74,7 +74,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Texture2D:
-        m_Texture: {fileID: 2800000, guid: d68aca9a6839447ba9263a3731a48e91, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -148,10 +148,9 @@ Material:
     m_Colors:
     - _BaseColor: {r: 0.6320754, g: 0.37864897, b: 0.37864897, a: 1}
     - _ClampTextureColor: {r: 0, g: 1, b: 0, a: 0}
-    - _Color: {r: 0.6320754, g: 0.37864894, b: 0.37864894, a: 1}
+    - _Color: {r: 1.2627451, g: 1.2052715, b: 0.7607843, a: 1}
     - _DepthColor: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _LinesColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _Tiling: {r: 1, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
