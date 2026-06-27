@@ -37,6 +37,10 @@ public class SongManager : MonoBehaviour
     private float halfMissTiming => missTiming * 0.5f;
     
     private HashSet<int> processedNotes  = new HashSet<int>();
+    private int Score = 0;
+    public int ScoreForMiss = 10;
+    public int ScoreForNice = 20;
+    public int ScoreForPerfect = 50;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -130,6 +134,21 @@ public class SongManager : MonoBehaviour
     {
         Debug.Log($"PLAY: index: {index}, hitType: {hit}, songTime: {songTime}");
         processedNotes.Add(index);
+        switch (hit)
+        {
+            case BeatHitType.Miss:
+                Score += ScoreForMiss;
+                break;
+            case BeatHitType.Nice:
+                Score += ScoreForNice;
+                break;
+            case BeatHitType.Perfect:
+                Score += ScoreForPerfect;
+                break;
+            default:
+                break;
+        }
+        GameUI.Instance.UpdateScore(Score);
     }
 
     private void PlayMetronomeTick(int currentBeat)
