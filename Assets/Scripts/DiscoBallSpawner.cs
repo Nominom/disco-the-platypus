@@ -1,11 +1,12 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class DiscoBallSpawner : MonoBehaviour
 {
     public GameObject DiscoBallPrefab;
-    public int SpawnThreshold = 100;
+    public int SpawnThreshold = 2;
 
     public float SpawnXMin = -10;
     public float SpawnXMax = 10;
@@ -19,27 +20,40 @@ public class DiscoBallSpawner : MonoBehaviour
     public int maxBalls = 5;
     private int ballsDropped;
 
+    private List<GameObject> balls = new List<GameObject>();
+
     private void Update()
     {
         if (SpawnCooldownTimer < SpawnCooldown)
         {
             SpawnCooldownTimer += Time.deltaTime;
         }
-        
-        if (SongManager.Instance.GetCurrentScore() >= SpawnThreshold && SpawnCooldownTimer >= SpawnCooldown && ballsDropped < maxBalls)
+
+        if (SongManager.Instance.Combo >= SpawnThreshold && SpawnCooldownTimer >= SpawnCooldown &&
+            ballsDropped < maxBalls)
         {
             SpawnCooldownTimer = 0;
             GameObject disco = Instantiate(DiscoBallPrefab, transform);
-
+            balls.Add(disco);
             disco.transform.position = new Vector3(
                 Random.Range(SpawnXMin, SpawnXMax),
                 Random.Range(SpawnHeightMin, SpawnHeightMax),
                 Random.Range(SpawnZMin, SpawnZMax));
-            
+
             disco.transform.rotation = Random.rotation;
-            
+
             disco.GetComponent<DiscoBall>().StartDrop(disco.transform.position.y);
             ballsDropped++;
+        }
+
+        if (SongManager.Instance.Combo < SpawnThreshold)
+        {
+            for (var i = 0; i < balls.Count; i++)
+            {
+                Destroy(balls[i]);
+            }
+
+            balls.Clear();
         }
     }
 }
