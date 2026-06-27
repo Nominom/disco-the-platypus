@@ -48,7 +48,8 @@ MonoBehaviour:
   - {fileID: 7833122117494664109}
   - {fileID: 7919705720104946965}
   - {fileID: -2398410030450757250}
-  m_RendererFeatureMap: ad6b866f10d7b46c150d7c5c6472e86d7eb13fddc822b7de
+  - {fileID: 5845996529561570957}
+  m_RendererFeatureMap: ad6b866f10d7b46c150d7c5c6472e86d7eb13fddc822b7de8d0eafc6de262151
   xrSystemData: {fileID: 0}
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   m_AssetVersion: 3
@@ -77,6 +78,27 @@ MonoBehaviour:
   m_AccurateGbufferNormals: 0
   m_IntermediateTextureMode: 0
   m_TileOnlyMode: 0
+--- !u!114 &5845996529561570957
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1614fc811f8f184697d9bee70ab9fe5, type: 3}
+  m_Name: DecalRendererFeature
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.DecalRendererFeature
+  m_Active: 1
+  m_Settings:
+    technique: 2
+    maxDrawDistance: 1000
+    decalLayers: 0
+    dBufferSettings:
+      surfaceData: 2
+    screenSpaceSettings:
+      normalBlend: 0
 --- !u!114 &7833122117494664109
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -89,7 +111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f62c9c65cf3354c93be831c8bc075510, type: 3}
   m_Name: ScreenSpaceAmbientOcclusion
   m_EditorClassIdentifier: 
-  m_Active: 1
+  m_Active: 0
   m_Settings:
     AOMethod: 0
     Downsample: 0
