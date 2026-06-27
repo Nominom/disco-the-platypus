@@ -444,6 +444,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3422522993936010858, guid: dcf8a6a167b653ab5a94b4352138edf0, type: 3}
   m_PrefabInstance: {fileID: 5120165822407510312}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1030990604 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1362309730707103072, guid: a5e40379094bf2c05b018d40aeb490ad, type: 3}
+  m_PrefabInstance: {fileID: 1254591304}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1071766286 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2301303438737240026, guid: 8fea7061d5f26434ba0ac5b52a85aa00, type: 3}
@@ -576,6 +581,67 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
+--- !u!1001 &1254591304
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1362309730707103072, guid: a5e40379094bf2c05b018d40aeb490ad, type: 3}
+      propertyPath: m_Name
+      value: DiscoBall 1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1362309730707103072, guid: a5e40379094bf2c05b018d40aeb490ad, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6918300927454082251, guid: a5e40379094bf2c05b018d40aeb490ad, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 6918300927454082251, guid: a5e40379094bf2c05b018d40aeb490ad, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 6918300927454082251, guid: a5e40379094bf2c05b018d40aeb490ad, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 6918300927454082251, guid: a5e40379094bf2c05b018d40aeb490ad, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6918300927454082251, guid: a5e40379094bf2c05b018d40aeb490ad, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6918300927454082251, guid: a5e40379094bf2c05b018d40aeb490ad, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6918300927454082251, guid: a5e40379094bf2c05b018d40aeb490ad, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6918300927454082251, guid: a5e40379094bf2c05b018d40aeb490ad, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6918300927454082251, guid: a5e40379094bf2c05b018d40aeb490ad, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6918300927454082251, guid: a5e40379094bf2c05b018d40aeb490ad, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a5e40379094bf2c05b018d40aeb490ad, type: 3}
 --- !u!1 &1270355465
 GameObject:
   m_ObjectHideFlags: 0
@@ -655,6 +721,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1353804078 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1362309730707103072, guid: a5e40379094bf2c05b018d40aeb490ad, type: 3}
+  m_PrefabInstance: {fileID: 1905095681}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1874813663
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -756,6 +827,67 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60016da1305424386a3a3df427242504, type: 3}
+--- !u!1001 &1905095681
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1362309730707103072, guid: a5e40379094bf2c05b018d40aeb490ad, type: 3}
+      propertyPath: m_Name
+      value: DiscoBall 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1362309730707103072, guid: a5e40379094bf2c05b018d40aeb490ad, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6918300927454082251, guid: a5e40379094bf2c05b018d40aeb490ad, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 6918300927454082251, guid: a5e40379094bf2c05b018d40aeb490ad, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 6918300927454082251, guid: a5e40379094bf2c05b018d40aeb490ad, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 6918300927454082251, guid: a5e40379094bf2c05b018d40aeb490ad, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6918300927454082251, guid: a5e40379094bf2c05b018d40aeb490ad, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6918300927454082251, guid: a5e40379094bf2c05b018d40aeb490ad, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6918300927454082251, guid: a5e40379094bf2c05b018d40aeb490ad, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6918300927454082251, guid: a5e40379094bf2c05b018d40aeb490ad, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6918300927454082251, guid: a5e40379094bf2c05b018d40aeb490ad, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6918300927454082251, guid: a5e40379094bf2c05b018d40aeb490ad, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a5e40379094bf2c05b018d40aeb490ad, type: 3}
 --- !u!1001 &2095635525
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1020,37 +1152,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2162167933427134304, guid: e0b108c398cf0451588bebbe98999674, type: 3}
-      propertyPath: maxBalls
+      propertyPath: balls.Array.size
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2162167933427134304, guid: e0b108c398cf0451588bebbe98999674, type: 3}
-      propertyPath: SpawnXMax
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 2162167933427134304, guid: e0b108c398cf0451588bebbe98999674, type: 3}
-      propertyPath: SpawnXMin
-      value: -7
-      objectReference: {fileID: 0}
-    - target: {fileID: 2162167933427134304, guid: e0b108c398cf0451588bebbe98999674, type: 3}
-      propertyPath: SpawnZMax
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2162167933427134304, guid: e0b108c398cf0451588bebbe98999674, type: 3}
-      propertyPath: SpawnZMin
-      value: -5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2162167933427134304, guid: e0b108c398cf0451588bebbe98999674, type: 3}
-      propertyPath: SpawnHeightMin
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2162167933427134304, guid: e0b108c398cf0451588bebbe98999674, type: 3}
-      propertyPath: SpawnThreshold
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 2162167933427134304, guid: e0b108c398cf0451588bebbe98999674, type: 3}
-      propertyPath: DiscoBallPrefab
+      propertyPath: 'balls.Array.data[0]'
       value: 
-      objectReference: {fileID: 1362309730707103072, guid: a5e40379094bf2c05b018d40aeb490ad, type: 3}
+      objectReference: {fileID: 1353804078}
+    - target: {fileID: 2162167933427134304, guid: e0b108c398cf0451588bebbe98999674, type: 3}
+      propertyPath: 'balls.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1030990604}
     - target: {fileID: 2393813432047395223, guid: e0b108c398cf0451588bebbe98999674, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1471,3 +1583,5 @@ SceneRoots:
   - {fileID: 398524980}
   - {fileID: 1874813663}
   - {fileID: 2095635525}
+  - {fileID: 1905095681}
+  - {fileID: 1254591304}

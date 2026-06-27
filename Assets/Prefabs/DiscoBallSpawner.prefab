@@ -44,10 +44,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e4f40d2b497949dea2fe8213c0ef892, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiscoBallSpawner
-  DiscoBallPrefab: {fileID: 1101558798141192773, guid: efd0c59ef0b2043bba3aa9cfc0eb8fb5, type: 3}
-  SpawnThreshold: 100
-  SpawnXMin: -10
-  SpawnXMax: 10
-  SpawnZMin: 0
-  SpawnZMax: 20
-  SpawnHeight: 5
+  DiscoBallPrefab: {fileID: 1362309730707103072, guid: a5e40379094bf2c05b018d40aeb490ad, type: 3}
+  SpawnThreshold: 50
+  SpawnXMin: -7
+  SpawnXMax: 7
+  SpawnZMin: -5
+  SpawnZMax: 0
+  SpawnHeightMin: 3
+  SpawnHeightMax: 5
+  SpawnCooldown: 0.5
+  maxBalls: 2

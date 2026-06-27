@@ -20,7 +20,8 @@ public class DiscoBallSpawner : MonoBehaviour
     public int maxBalls = 5;
     private int ballsDropped;
 
-    private List<GameObject> balls = new List<GameObject>();
+    public List<GameObject> balls = new List<GameObject>();
+
 
     private void Update()
     {
@@ -29,31 +30,37 @@ public class DiscoBallSpawner : MonoBehaviour
             SpawnCooldownTimer += Time.deltaTime;
         }
 
-        if (SongManager.Instance.Combo >= SpawnThreshold && SpawnCooldownTimer >= SpawnCooldown &&
-            ballsDropped < maxBalls)
-        {
-            SpawnCooldownTimer = 0;
-            GameObject disco = Instantiate(DiscoBallPrefab, transform);
-            balls.Add(disco);
-            disco.transform.position = new Vector3(
-                Random.Range(SpawnXMin, SpawnXMax),
-                Random.Range(SpawnHeightMin, SpawnHeightMax),
-                Random.Range(SpawnZMin, SpawnZMax));
+        // if (SongManager.Instance.Combo >= SpawnThreshold && SpawnCooldownTimer >= SpawnCooldown)
+        // {
+        //     SpawnCooldownTimer = 0;
+        //     GameObject disco = Instantiate(DiscoBallPrefab, transform);
+        //     balls.Add(disco);
+        //     disco.transform.position = new Vector3(
+        //         Random.Range(SpawnXMin, SpawnXMax),
+        //         Random.Range(SpawnHeightMin, SpawnHeightMax),
+        //         Random.Range(SpawnZMin, SpawnZMax));
+        //
+        //     disco.transform.rotation = Random.rotation;
+        //
+        //     disco.GetComponent<DiscoBall>().StartDrop(disco.transform.position.y);
+        //     ballsDropped++;
+        //     Debug.Log("BALL DROPADOPAD: " + ballsDropped);
+        // }
 
-            disco.transform.rotation = Random.rotation;
-
-            disco.GetComponent<DiscoBall>().StartDrop(disco.transform.position.y);
-            ballsDropped++;
-        }
-
-        if (SongManager.Instance.Combo < SpawnThreshold)
+        if (SongManager.Instance.Combo >= SpawnThreshold && SpawnCooldownTimer >= SpawnCooldown)
         {
             for (var i = 0; i < balls.Count; i++)
             {
-                Destroy(balls[i]);
+                balls[i].SetActive(true);
             }
+        }
 
-            balls.Clear();
+        else if (SongManager.Instance.Combo < SpawnThreshold)
+        {
+            for (var i = 0; i < balls.Count; i++)
+            {
+                balls[i].SetActive(false);
+            }
         }
     }
 }
