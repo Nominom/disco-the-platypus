@@ -49,7 +49,7 @@ public class SongManager : MonoBehaviour
         get => _score;
         set
         {
-            _score = Mathf.RoundToInt(value * _scoreMultiplier);
+            _score = value;
         }
     }
     
@@ -364,20 +364,21 @@ public class SongManager : MonoBehaviour
         }
         
         noteSpawner.spawnedNotes.TryGetValue(index, out NoteScript noteScript);
-
-        
         
         processedNotes.Add(index);
         switch (hit)
         {
             case BeatHitType.Good:
-                Score += ScoreForGood;
+                Score += Mathf.RoundToInt(ScoreForGood * _scoreMultiplier);
+                Combo++;
                 break;
             case BeatHitType.Nice:
-                Score += ScoreForNice;
+                Score += Mathf.RoundToInt(ScoreForNice * _scoreMultiplier);
+                Combo += 2;
                 break;
             case BeatHitType.Perfect:
-                Score += ScoreForPerfect;
+                Score += Mathf.RoundToInt(ScoreForPerfect * _scoreMultiplier);
+                Combo += 3;
                 break;
             default:
                 break;
@@ -385,7 +386,6 @@ public class SongManager : MonoBehaviour
         
         if (hit != BeatHitType.Miss)
         {
-            Combo++;
             GameUI.Instance.UpdateScore(Score);
             NiceUI.Instance.SpawnNice(hit);
             
