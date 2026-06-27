@@ -42,7 +42,7 @@ public class NoteScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!SongManager.Instance.isPaused)
+        if (SongManager.Instance.audioSource.isPlaying)
         {
             float moveAmount = SongManager.Instance.currentSong.notesSpeed * Time.deltaTime;
             if (SongManager.Instance.recordingMode)

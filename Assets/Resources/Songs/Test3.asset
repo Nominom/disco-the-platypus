@@ -15,5 +15,6 @@ MonoBehaviour:
   songName: Moo
   songClip: {fileID: 8300000, guid: 6e5d8cf04bb544b6d9e2aad67162c986, type: 3}
   notesSpeed: 1
-  bpm: 100
+  bpm: 115
+  bpmOffset: 0
   notes: []

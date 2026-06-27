@@ -131,19 +131,41 @@ public class SongManager : MonoBehaviour
         {
             yield return new WaitForSeconds(0.1f);
         }
+        
+        float noteSpawnOffsetInSongTime = Mathf.Abs(spawn.transform.position.z - triggerPoint.position.z) / song.notesSpeed;
+        float beatInterval = 60f / Mathf.Max(1, song.bpm);
+        
+        for (int n = 0; n < song.notes.Count; n++)
+        {
+            var note = song.notes[n];
+            float noteTime = note.beat * beatInterval;
+            if (noteTime < noteSpawnOffsetInSongTime)
+            {
+                float spawnOffset = (noteTime - noteSpawnOffsetInSongTime + (song.bpmOffset * beatInterval) + globalAudioOffset) * song.notesSpeed;
+                Debug.Log($"Prespawn: noteTime: {note.beat * beatInterval}, offset: {spawnOffset}");
+                noteSpawner.SpawnNote(currentSpawnNote, note);
+                noteSpawner.spawnedNotes[currentSpawnNote].transform.position += new Vector3(0, 0, spawnOffset);
+                currentSpawnNote++;
+            }
+            else
+            {
+                break;
+            }
+        }
+
+        yield return new WaitForSeconds(1);
 
         audioSource.loop = false;
         audioSource.clip = song.songClip;
         audioSource.Play();
         songTime = 0;
         
-        float noteSpawnOffsetInSongTime = Mathf.Abs(spawn.transform.position.z - triggerPoint.position.z) / song.notesSpeed;
 
         int lastBeat = -1;
 
         while (audioSource.isPlaying)
         {
-            float beatInterval = 60f / Mathf.Max(1, song.bpm);
+            beatInterval = 60f / Mathf.Max(1, song.bpm);
             songTime = audioSource.time - (song.bpmOffset * beatInterval);
             float heardTime = songTime - globalAudioOffset;
             
@@ -272,22 +294,47 @@ public class SongManager : MonoBehaviour
 
         audioSource.loop = false;
         audioSource.clip = song.songClip;
-        audioSource.Play();
-        songTime = 0;
         
         float noteSpawnOffsetInSongTime = Mathf.Abs(spawn.transform.position.z - triggerPoint.position.z) / song.notesSpeed;
+        float beatInterval = 60f / Mathf.Max(1, song.bpm);
 
+
+        for (int n = 0; n < song.notes.Count; n++)
+        {
+            var note = song.notes[n];
+            float noteTime = note.beat * beatInterval + (note.subBeat * 0.5f) * beatInterval;
+            if (noteTime < noteSpawnOffsetInSongTime)
+            {
+                float spawnOffset = (noteTime - noteSpawnOffsetInSongTime + (song.bpmOffset * beatInterval) + globalAudioOffset) * song.notesSpeed;
+                Debug.Log($"Prespawn: noteTime: {note.beat * beatInterval}, offset: {spawnOffset}");
+                noteSpawner.SpawnNote(currentSpawnNote, note);
+                noteSpawner.spawnedNotes[currentSpawnNote].transform.position += new Vector3(0, 0, spawnOffset);
+                currentSpawnNote++;
+            }
+            else
+            {
+                break;
+            }
+        }
+
+        yield return new WaitForSeconds(1);
+        
+        audioSource.Play();
+        songTime = 0;
         int lastBeat = -1;
+
 
         while (audioSource.isPlaying)
         {
             audioSource.pitch = recordingSpeed;
-            float beatInterval = 60f / Mathf.Max(1, song.bpm);
+            beatInterval = 60f / Mathf.Max(1, song.bpm);
             songTime = audioSource.time - (song.bpmOffset * beatInterval);
             float heardTime = songTime - (globalAudioOffset * recordingSpeed);
             
             int currentBeatSongTime = Mathf.FloorToInt((songTime) / beatInterval);
-            int currentBeatHeardRounded = Mathf.FloorToInt((heardTime) / beatInterval + 0.5f);
+            int currentSubBeatHeardRounded = Mathf.FloorToInt(heardTime / (beatInterval * 0.5f) + 0.5f);
+            int currentBeatHeardRounded = currentSubBeatHeardRounded / 2;
+            int currentSubBeatHeard = currentSubBeatHeardRounded % 2;
 
             bool spawned;
             do
@@ -296,12 +343,15 @@ public class SongManager : MonoBehaviour
                 if (currentSpawnNote < song.notes.Count)
                 {
                     var note = song.notes[currentSpawnNote];
-                    float noteTime = note.beat * beatInterval;
+                    float noteTime = note.beat * beatInterval + (note.subBeat * 0.5f) * beatInterval;
                     if (heardTime >= noteTime - noteSpawnOffsetInSongTime)
                     {
+                        float spawnOffset = (heardTime - (noteTime - noteSpawnOffsetInSongTime)) * song.notesSpeed;
+                        
                         Debug.Log(
                             $"SPAWN: spawnTime: {heardTime}, noteTime: {note.beat * beatInterval}, offset: {noteSpawnOffsetInSongTime}");
                         noteSpawner.SpawnNote(currentSpawnNote, note);
+                        noteSpawner.spawnedNotes[currentSpawnNote].transform.position -= new Vector3(0, 0, spawnOffset);
                         currentSpawnNote++;
                         spawned = true;
                     }
@@ -316,7 +366,7 @@ public class SongManager : MonoBehaviour
                 var newNote = new NoteDef()
                 {
                     beat = currentBeatHeardRounded,
-                    subBeat = 0,
+                    subBeat = currentSubBeatHeard,
                     noteType = NoteType.Tap,
                     length = 0
                 };
@@ -360,23 +410,14 @@ public class SongManager : MonoBehaviour
             }
             if (eraseAction.WasPressedThisFrame())
             {
-                song.notes.RemoveAll(x => x.beat == currentBeatHeardRounded);
+                song.notes.RemoveAll(x => x.beat == currentBeatHeardRounded && x.subBeat == currentSubBeatHeard);
             }
             if (rewindAction.WasPressedThisFrame())
             {
                 float newTime = Mathf.Clamp(audioSource.time - 5, 0, song.songClip.length);
                 audioSource.time = newTime;
 
-                foreach (var note in song.notes)
-                {
-                    float noteTime = note.beat * beatInterval;
-                    if (newTime - (song.bpmOffset * beatInterval) < noteTime - noteSpawnOffsetInSongTime)
-                    {
-                        currentSpawnNote = note.index;
-                        Debug.Log("Rewinded to note: " + currentSpawnNote);
-                        break;
-                    }
-                }
+                currentSpawnNote = 0;
                 
                 foreach (var noteScript in FindObjectsByType<NoteScript>())
                 {
