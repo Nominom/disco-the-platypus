@@ -59,7 +59,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _AffineStrength: 0.999
+    - _AffineStrength: 0.7
     - _AlphaClipTreshold: 0
     - _Caught: 0
     - _DEPTHCOLOR: 0
