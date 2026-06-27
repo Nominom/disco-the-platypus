@@ -12,7 +12,7 @@ public class NoteSpawner : MonoBehaviour
         Transform spawn = noteSpawnPoints[(int)dir];
         var go = Instantiate(notePrefab, spawn.position, spawn.rotation);
         go.GetComponent<NoteScript>().Initialize(index, noteType, dir, length);
-        spawnedNotes.Add(index, go.GetComponent<NoteScript>());
+        spawnedNotes[index] = go.GetComponent<NoteScript>();
     }
 
     public void SpawnNote(int index, NoteDef note) => SpawnNote(index, note.noteType, note.noteDir, note.length);
