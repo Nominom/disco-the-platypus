@@ -894,6 +894,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameSceneCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 3548344034531350019, guid: 43b03b9a40580407eb9c1501a4b672a9, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3548344034531350019, guid: 43b03b9a40580407eb9c1501a4b672a9, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6168751516731352661, guid: 43b03b9a40580407eb9c1501a4b672a9, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6168751516731352661, guid: 43b03b9a40580407eb9c1501a4b672a9, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6168751516731352661, guid: 43b03b9a40580407eb9c1501a4b672a9, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6168751516731352661, guid: 43b03b9a40580407eb9c1501a4b672a9, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6168751516731352661, guid: 43b03b9a40580407eb9c1501a4b672a9, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -496
+      objectReference: {fileID: 0}
+    - target: {fileID: 6168751516731352661, guid: 43b03b9a40580407eb9c1501a4b672a9, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7260053361892078591, guid: 43b03b9a40580407eb9c1501a4b672a9, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -989,15 +1021,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2162167933427134304, guid: e0b108c398cf0451588bebbe98999674, type: 3}
       propertyPath: maxBalls
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2162167933427134304, guid: e0b108c398cf0451588bebbe98999674, type: 3}
       propertyPath: SpawnXMax
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2162167933427134304, guid: e0b108c398cf0451588bebbe98999674, type: 3}
       propertyPath: SpawnXMin
-      value: -8
+      value: -7
       objectReference: {fileID: 0}
     - target: {fileID: 2162167933427134304, guid: e0b108c398cf0451588bebbe98999674, type: 3}
       propertyPath: SpawnZMax
@@ -1005,7 +1037,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2162167933427134304, guid: e0b108c398cf0451588bebbe98999674, type: 3}
       propertyPath: SpawnZMin
-      value: -10
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 2162167933427134304, guid: e0b108c398cf0451588bebbe98999674, type: 3}
       propertyPath: SpawnHeightMin

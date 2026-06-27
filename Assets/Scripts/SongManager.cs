@@ -453,11 +453,11 @@ public class SongManager : MonoBehaviour
                 break;
             case BeatHitType.Nice:
                 Score += Mathf.RoundToInt(ScoreForNice * _scoreMultiplier);
-                Combo += 2;
+                Combo += 1;
                 break;
             case BeatHitType.Perfect:
                 Score += Mathf.RoundToInt(ScoreForPerfect * _scoreMultiplier);
-                Combo += 3;
+                Combo += 1;
                 break;
             case BeatHitType.Miss:
                 Combo = 0;
