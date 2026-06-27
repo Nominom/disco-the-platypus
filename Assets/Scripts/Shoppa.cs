@@ -10,6 +10,7 @@ public class Shoppa : MonoBehaviour
     public static Shoppa Instance;
 
     public GameObject Contents;
+    public TextMeshProUGUI MoniesText;
     public Button Buy1;
     public int Buy1Price;
     public Button Buy2;
@@ -32,6 +33,7 @@ public class Shoppa : MonoBehaviour
             Destroy(gameObject);
         }
         
+        MoniesText.text = "MONIES: " + PlayerPrefs.GetInt("Monies", 0);
         Buy1.onClick.AddListener(BuyUno);
         Buy2.onClick.AddListener(BuyDos);
         Buy3.onClick.AddListener(BuyTres);
@@ -105,6 +107,7 @@ public class Shoppa : MonoBehaviour
         int monies = PlayerPrefs.GetInt("Monies");
         monies -= price;
         PlayerPrefs.SetInt("Monies", monies);
+        MoniesText.text = "MONIES: " + PlayerPrefs.GetInt("Monies", 0);
     }
 
     public bool HasMonies(int price)
@@ -118,6 +121,7 @@ public class Shoppa : MonoBehaviour
         int monies = PlayerPrefs.GetInt("Monies");
         monies += price;
         PlayerPrefs.SetInt("Monies", monies);
+        MoniesText.text = "MONIES: " + PlayerPrefs.GetInt("Monies", 0);
         PlayerPrefs.Save();
     }
 }
