@@ -12,6 +12,7 @@ public class MainMenu : MonoBehaviour
     public Button CalibrationButton;
     public Button QuitButton;
     public Button ShoppaButton;
+    public Button SettingsButton;
     public TMP_Dropdown SongDropdown;
     private List<SongScObj> Songs;
     public string GameSceneName = "GameScene";
@@ -22,6 +23,7 @@ public class MainMenu : MonoBehaviour
         CalibrationButton.onClick.AddListener(Calibration);
         QuitButton.onClick.AddListener(QuitGame);
         ShoppaButton.onClick.AddListener(Shoppa);
+        SettingsButton.onClick.AddListener(SettingsMenu);
         
         SongDropdown.options.Clear();
 
@@ -36,6 +38,11 @@ public class MainMenu : MonoBehaviour
         
         SongDropdown.onValueChanged.AddListener(v => ChangeCurrentSong(Songs[v]));
         ChangeCurrentSong(Songs[0]);
+    }
+
+    private void SettingsMenu()
+    {
+        SceneManager.LoadScene("SettingsScene");
     }
 
     private void ChangeCurrentSong(SongScObj song)

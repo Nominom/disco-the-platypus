@@ -437,6 +437,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2273049700902089978, guid: 25cdcd63d8d7249cc98683f826648a9b, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 3000884633786422534, guid: 25cdcd63d8d7249cc98683f826648a9b, type: 3}
       propertyPath: m_Name
       value: ShoppaCanvas
@@ -759,10 +763,10 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 760833653}
   - {fileID: 330585546}
   - {fileID: 410087041}
   - {fileID: 832575519}
   - {fileID: 4034852623445283414}
   - {fileID: 1546558095}
   - {fileID: 209781683}
-  - {fileID: 760833653}
