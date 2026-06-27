@@ -312,6 +312,9 @@ public class SongManager : MonoBehaviour
     private void TriggerBeat(int index, BeatHitType hit)
     {
         Debug.Log($"PLAY: index: {index}, hitType: {hit}, songTime: {songTime}");
+        
+        // Skip scoring if note has been processed already
+        // TODO: handle held notes
         if (processedNotes.Contains(index))
         {
             return;
@@ -368,6 +371,6 @@ public class SongManager : MonoBehaviour
 
     public int GetCurrentScore()
     {
-        return _score;
+        return Score;
     }
 }
