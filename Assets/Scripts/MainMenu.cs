@@ -9,6 +9,8 @@ using UnityEngine.UI;
 public class MainMenu : MonoBehaviour
 {
     public Button StartGameButton;
+    public Button CalibrationButton;
+    public Button QuitButton;
     public TMP_Dropdown SongDropdown;
     private List<SongScObj> Songs;
     public string GameSceneName = "GameScene";
@@ -16,6 +18,9 @@ public class MainMenu : MonoBehaviour
     private void Start()
     {
         StartGameButton.onClick.AddListener(StartGame);
+        CalibrationButton.onClick.AddListener(Calibration);
+        QuitButton.onClick.AddListener(QuitGame);
+        
         SongDropdown.options.Clear();
 
         SongDropdown.AddOptions(new List<string> { "Easy", "Medium", "Hard" });
@@ -39,5 +44,15 @@ public class MainMenu : MonoBehaviour
     public void StartGame()
     {
         SceneManager.LoadScene(GameSceneName);
+    }
+
+    public void Calibration()
+    {
+        SceneManager.LoadScene("CalibrationScene");
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }

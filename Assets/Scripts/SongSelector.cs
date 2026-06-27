@@ -16,8 +16,8 @@ public class SongSelector : MonoBehaviour
         }
         else
         {
+            // Expected when changing scenes back and forth
             Destroy(gameObject);
-            Debug.Log("Multiple instances of SongSelector. Deleting self");
         }
     }
 

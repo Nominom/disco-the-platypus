@@ -68,7 +68,7 @@ public class AudioDelayCalibrator : MonoBehaviour
             }
         }
 
-        if (delays.Count > numBeats / 2)
+        if (delays.Count > 4)
         {
             float medianDelay = GetMedianDelay();
             if (SongSelector.Instance)
@@ -77,6 +77,10 @@ public class AudioDelayCalibrator : MonoBehaviour
                 SongSelector.Instance.SaveAudioOffset();
                 Debug.Log("Saved offset: " + medianDelay);
             }
+        }
+        else
+        {
+            Debug.LogError("NOT ENOUGH BEAT");
         }
         
         text.GetComponentInChildren<TextMeshProUGUI>().text =
