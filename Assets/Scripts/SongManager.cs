@@ -58,6 +58,10 @@ public class SongManager : MonoBehaviour
     public int ScoreForPerfect = 50;
     
     private float _scoreMultiplier = 1f;
+
+    private int _maxScore = -1;
+    private string _ScoreRating = "F";
+    private int _moneyPayout = 0;
     
     [Header("Recording Mode")]
     public bool recordingMode;
@@ -222,8 +226,41 @@ public class SongManager : MonoBehaviour
 
     private void SongEnded()
     {
-        Shoppa.Instance.AddMonies(Score);
-        GameUI.Instance.ShowSongEndedScoreScreen(Score, _highestCombo, _highestMult);
+        _maxScore = processedNotes.Count * ScoreForPerfect;
+        int awardedMonies = 0;
+        if (_score >= _maxScore * 0.95f)
+        {
+            _ScoreRating = "S";
+            awardedMonies = 10000;
+        }
+        else if (_score >= _maxScore * 0.8f)
+        {
+            _ScoreRating = "A";
+            awardedMonies = 8000;
+        }
+        else if (_score >= _maxScore * 0.7f)
+        {
+            _ScoreRating = "B";
+            awardedMonies = 5000;
+        }
+        else if (_score >= _maxScore * 0.6f)
+        {
+            _ScoreRating = "C";
+            awardedMonies = 2500;
+        }
+        else if (_score >= _maxScore * 0.5f)
+        {
+            _ScoreRating = "D";
+            awardedMonies = 1000;
+        }
+        else
+        {
+            _ScoreRating = "F";
+            awardedMonies = 100;
+        }
+        
+        Shoppa.Instance.AddMonies(awardedMonies);
+        GameUI.Instance.ShowSongEndedScoreScreen(Score, _highestCombo, _highestMult, awardedMonies, _ScoreRating);
     }
 
     private IEnumerator RecordSong(SongScObj song)
@@ -379,6 +416,9 @@ public class SongManager : MonoBehaviour
             case BeatHitType.Perfect:
                 Score += Mathf.RoundToInt(ScoreForPerfect * _scoreMultiplier);
                 Combo += 3;
+                break;
+            case BeatHitType.Miss:
+                Combo = 0;
                 break;
             default:
                 break;

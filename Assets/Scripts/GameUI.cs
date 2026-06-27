@@ -10,6 +10,8 @@ public class GameUI : MonoBehaviour
     public TextMeshProUGUI ScoreText;
     public TextMeshProUGUI ComboText;
     public TextMeshProUGUI MultiplierText;
+    public TextMeshProUGUI RatingText;
+    public TextMeshProUGUI ScoreScreenAwardedMoniesText;
 
     public GameObject ScoreScreen;
     public TextMeshProUGUI ScoreScreenScoreText;
@@ -52,11 +54,13 @@ public class GameUI : MonoBehaviour
         MultiplierText.SetText("MULTIPLIER: " + mult + "x");
     }
 
-    public void ShowSongEndedScoreScreen(int score, int highestCombo, float highestMult)
+    public void ShowSongEndedScoreScreen(int score, int highestCombo, float highestMult, int awardedMonies, string rating)
     {
         ScoreScreen.SetActive(true);
         ScoreScreenScoreText.SetText("SCORE: " + score);
         ScoreScreenComboText.SetText("HIGHEST COMBO: " + highestCombo);
         ScoreScreenMultiplierText.SetText("HIGHEST MULTIPLIER: " + highestMult);
+        ScoreScreenAwardedMoniesText.SetText("MONIES: " + awardedMonies);
+        RatingText.SetText(rating);
     }
 }
