@@ -238,7 +238,7 @@ public class SongManager : MonoBehaviour
             audioSource.pitch = recordingSpeed;
             float beatInterval = 60f / Mathf.Max(1, song.bpm);
             songTime = audioSource.time - (song.bpmOffset * beatInterval);
-            float heardTime = songTime - globalAudioOffset;
+            float heardTime = songTime - (globalAudioOffset * recordingSpeed);
             
             int currentBeatSongTime = Mathf.FloorToInt((songTime) / beatInterval);
             int currentBeatHeardRounded = Mathf.FloorToInt((heardTime) / beatInterval + 0.5f);
