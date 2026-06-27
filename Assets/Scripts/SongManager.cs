@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -66,6 +67,8 @@ public class SongManager : MonoBehaviour
     private int _combo = 0;
     private int _highestCombo = 0;
     private float _highestMult = 1.0f;
+    
+    public Action OnMetronomeTick;
 
     public int Combo
     {
@@ -95,6 +98,8 @@ public class SongManager : MonoBehaviour
         playPauseAction = InputSystem.actions.FindAction("Play");
         eraseAction = InputSystem.actions.FindAction("Erase");
         rewindAction = InputSystem.actions.FindAction("Rewind");
+        
+        metronomeEnabled = PlayerPrefs.GetInt("Metronome", 1) == 1;
 
         if (recordingMode)
         {
@@ -390,6 +395,7 @@ public class SongManager : MonoBehaviour
 
         AudioSource source = metronomeSource != null ? metronomeSource : audioSource;
         source.PlayOneShot(metronomeClip, metronomeVolume);
+        OnMetronomeTick?.Invoke();
     }
 
     private void PlayPause()

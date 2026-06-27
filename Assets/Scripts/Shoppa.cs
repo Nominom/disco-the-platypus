@@ -67,6 +67,7 @@ public class Shoppa : MonoBehaviour
 
     private void ExitToMainMenu()
     {
+        PlayerPrefs.Save();
         SceneManager.LoadScene("MainMenuScene");
     }
 
@@ -117,5 +118,6 @@ public class Shoppa : MonoBehaviour
         int monies = PlayerPrefs.GetInt("Monies");
         monies += price;
         PlayerPrefs.SetInt("Monies", monies);
+        PlayerPrefs.Save();
     }
 }
