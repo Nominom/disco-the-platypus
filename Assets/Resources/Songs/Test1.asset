@@ -19,50 +19,122 @@ MonoBehaviour:
   bpmOffset: 1
   notes:
   - index: 0
-    beat: 20
+    beat: 8
     subBeat: 0
     noteType: 0
     noteDir: 0
     length: 0
   - index: 1
+    beat: 8
+    subBeat: 0
+    noteType: 0
+    noteDir: 2
+    length: 0
+  - index: 2
+    beat: 12
+    subBeat: 0
+    noteType: 0
+    noteDir: 1
+    length: 0
+  - index: 3
+    beat: 16
+    subBeat: 0
+    noteType: 0
+    noteDir: 0
+    length: 0
+  - index: 4
+    beat: 17
+    subBeat: 0
+    noteType: 0
+    noteDir: 3
+    length: 0
+  - index: 5
+    beat: 18
+    subBeat: 0
+    noteType: 0
+    noteDir: 0
+    length: 0
+  - index: 6
+    beat: 19
+    subBeat: 0
+    noteType: 0
+    noteDir: 3
+    length: 0
+  - index: 7
+    beat: 20
+    subBeat: 0
+    noteType: 0
+    noteDir: 0
+    length: 0
+  - index: 8
     beat: 21
     subBeat: 0
     noteType: 0
     noteDir: 1
     length: 0
-  - index: 2
+  - index: 9
     beat: 22
     subBeat: 0
     noteType: 0
     noteDir: 2
     length: 0
-  - index: 3
+  - index: 10
     beat: 23
     subBeat: 0
     noteType: 0
     noteDir: 3
     length: 0
-  - index: 4
+  - index: 11
+    beat: 24
+    subBeat: 0
+    noteType: 0
+    noteDir: 0
+    length: 0
+  - index: 12
+    beat: 25
+    subBeat: 0
+    noteType: 0
+    noteDir: 3
+    length: 0
+  - index: 13
+    beat: 26
+    subBeat: 0
+    noteType: 0
+    noteDir: 0
+    length: 0
+  - index: 14
+    beat: 27
+    subBeat: 0
+    noteType: 0
+    noteDir: 3
+    length: 0
+  - index: 15
+    beat: 28
+    subBeat: 0
+    noteType: 0
+    noteDir: 2
+    length: 0
+  - index: 16
     beat: 30
     subBeat: 0
     noteType: 0
     noteDir: 0
     length: 0
-  - index: 5
+  - index: 17
     beat: 30
     subBeat: 0
     noteType: 0
     noteDir: 3
     length: 0
-  - index: 6
-    beat: 31
-    subBeat: 0
-    noteType: 0
-    noteDir: 1
-    length: 0
-  - index: 7
+  - index: 18
     beat: 31
     subBeat: 0
     noteType: 0
     noteDir: 2
+    length: 0
+  - index: 19
+    beat: 31
+    subBeat: 0
+    noteType: 0
+    noteDir: 1
     length: 0
