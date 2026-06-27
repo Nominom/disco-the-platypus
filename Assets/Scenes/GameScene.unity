@@ -999,6 +999,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2162167933427134304, guid: e0b108c398cf0451588bebbe98999674, type: 3}
+      propertyPath: SpawnZMax
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2162167933427134304, guid: e0b108c398cf0451588bebbe98999674, type: 3}
+      propertyPath: SpawnZMin
+      value: -20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2162167933427134304, guid: e0b108c398cf0451588bebbe98999674, type: 3}
+      propertyPath: SpawnThreshold
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2162167933427134304, guid: e0b108c398cf0451588bebbe98999674, type: 3}
+      propertyPath: DiscoBallPrefab
+      value: 
+      objectReference: {fileID: 1362309730707103072, guid: a5e40379094bf2c05b018d40aeb490ad, type: 3}
     - target: {fileID: 2393813432047395223, guid: e0b108c398cf0451588bebbe98999674, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
