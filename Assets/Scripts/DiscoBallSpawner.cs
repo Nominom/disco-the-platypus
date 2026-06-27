@@ -16,6 +16,8 @@ public class DiscoBallSpawner : MonoBehaviour
 
     public float SpawnCooldown = 0.5f;
     private float SpawnCooldownTimer = 0;
+    public int maxBalls = 5;
+    private int ballsDropped;
 
     private void Update()
     {
@@ -24,7 +26,7 @@ public class DiscoBallSpawner : MonoBehaviour
             SpawnCooldownTimer += Time.deltaTime;
         }
         
-        if (SongManager.Instance.GetCurrentScore() >= SpawnThreshold && SpawnCooldownTimer >= SpawnCooldown)
+        if (SongManager.Instance.GetCurrentScore() >= SpawnThreshold && SpawnCooldownTimer >= SpawnCooldown && ballsDropped < maxBalls)
         {
             SpawnCooldownTimer = 0;
             GameObject disco = Instantiate(DiscoBallPrefab, transform);
@@ -37,6 +39,7 @@ public class DiscoBallSpawner : MonoBehaviour
             disco.transform.rotation = Random.rotation;
             
             disco.GetComponent<DiscoBall>().StartDrop(disco.transform.position.y);
+            ballsDropped++;
         }
     }
 }
