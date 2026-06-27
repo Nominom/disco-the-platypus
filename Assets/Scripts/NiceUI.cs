@@ -27,11 +27,12 @@ public class NiceUI : MonoBehaviour
     public void SpawnNice(BeatHitType beatHitType)
     {
         GameObject nice = Instantiate(NiceText, transform);
+        var randOffset = new Vector3(0, Random.Range(-1, 1), 0);
         if (Random.value > 0.5f)
-            nice.transform.position = RightSpawn.position;
+            nice.transform.position = RightSpawn.position + randOffset;
         else
-            nice.transform.position = LeftSpawn.position;
-        
+            nice.transform.position = LeftSpawn.position + randOffset;
+
         nice.GetComponent<NiceText>().Set(beatHitType);
     }
 }
