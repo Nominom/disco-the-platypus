@@ -4,37 +4,40 @@ using UnityEngine.InputSystem;
 
 public class DanceAnimPlayer : MonoBehaviour
 {
-    public Animator anim;
+    private Animator anim;
     
     void Start()
     {
         anim = GetComponent<Animator>();
-
     }
 
     private void Update()
     {
         var input = DanceInput.GetInputPressed();
-        return;
+
+        if ((input & (InputDir.Left | InputDir.Right)) == (InputDir.Left | InputDir.Right))
+        {
+            anim.SetTrigger("ComboRightLeft");
+        }
         
         if ((input & InputDir.Right) != 0)
         {
-            anim.Play("DanceInputRight");
+            anim.SetTrigger("DanceInputRight");
         }
         
         if ((input & InputDir.Left) != 0)
         {
-            anim.Play("DanceInputLeft");
+            anim.SetTrigger("DanceInputLeft");
         }
         
         if ((input & InputDir.Up) != 0)
         {
-            anim.Play("DanceInputUp");
+            anim.SetTrigger("DanceInputUp");
         }
 
         if ((input & InputDir.Down) != 0)
         {
-            anim.Play("DanceInputDown");
+            anim.SetTrigger("DanceInputDown");
         }
     }
 }
