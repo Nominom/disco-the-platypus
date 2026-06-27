@@ -61,5 +61,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bd693f905fcae6a5b8d2a61263ea6ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HDRPMainLight
-  ambientColor: {r: 0.6792453, g: 0.6792453, b: 0.6792453, a: 1}
+  ambientColor: {r: 1, g: 0.8995314, b: 0.4764151, a: 1}
   lights: []
