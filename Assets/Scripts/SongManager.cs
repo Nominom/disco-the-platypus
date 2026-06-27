@@ -62,6 +62,8 @@ public class SongManager : MonoBehaviour
     private InputAction playPauseAction;
     
     private int _combo = 0;
+    private int _highestCombo = 0;
+    private float _highestMult = 1.0f;
 
     public int Combo
     {
@@ -72,7 +74,11 @@ public class SongManager : MonoBehaviour
         set
         {
             _combo = value;
+            if (value > _highestCombo)
+                _highestCombo = value;
             _scoreMultiplier = 1f + value / 10f;
+            if (_scoreMultiplier > _highestMult)
+                _highestMult = _scoreMultiplier;
             GameUI.Instance.UpdateCombo(_combo);
             GameUI.Instance.UpdateMultiplier(_scoreMultiplier.ToString("F"));
         }
@@ -194,6 +200,13 @@ public class SongManager : MonoBehaviour
             }
             yield return null;
         }
+
+        SongEnded();
+    }
+
+    private void SongEnded()
+    {
+        GameUI.Instance.ShowSongEndedScoreScreen(Score, _highestCombo, _highestMult);
     }
 
     private IEnumerator RecordSong(SongScObj song)
@@ -299,6 +312,11 @@ public class SongManager : MonoBehaviour
     private void TriggerBeat(int index, BeatHitType hit)
     {
         Debug.Log($"PLAY: index: {index}, hitType: {hit}, songTime: {songTime}");
+        if (processedNotes.Contains(index))
+        {
+            return;
+        }
+        
         processedNotes.Add(index);
         switch (hit)
         {
@@ -314,9 +332,12 @@ public class SongManager : MonoBehaviour
             default:
                 break;
         }
-
-        Combo++;
-        GameUI.Instance.UpdateScore(_score);
+        
+        if (hit != BeatHitType.Miss)
+        {
+            Combo++;
+            GameUI.Instance.UpdateScore(Score);
+        }
     }
 
     private void PlayMetronomeTick(int currentBeat)

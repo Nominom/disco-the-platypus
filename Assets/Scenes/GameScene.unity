@@ -638,6 +638,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93dc228e89b6b4c688e8d3d6e9142002, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  anim: {fileID: 0}
 --- !u!1001 &652553367299225545
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -649,6 +650,10 @@ PrefabInstance:
     - target: {fileID: 80039853564863171, guid: 43b03b9a40580407eb9c1501a4b672a9, type: 3}
       propertyPath: m_Name
       value: GameSceneCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 1302509409432740432, guid: 43b03b9a40580407eb9c1501a4b672a9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7260053361892078591, guid: 43b03b9a40580407eb9c1501a4b672a9, type: 3}
       propertyPath: m_Pivot.x

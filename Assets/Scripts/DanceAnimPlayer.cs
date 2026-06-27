@@ -4,8 +4,8 @@ using UnityEngine.InputSystem;
 
 public class DanceAnimPlayer : MonoBehaviour
 {
+    public Animator anim;
     
-    private Animator anim;
     void Start()
     {
         anim = GetComponent<Animator>();

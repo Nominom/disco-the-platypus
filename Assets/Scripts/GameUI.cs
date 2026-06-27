@@ -1,5 +1,7 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameUI : MonoBehaviour
 {
@@ -8,6 +10,12 @@ public class GameUI : MonoBehaviour
     public TextMeshProUGUI ScoreText;
     public TextMeshProUGUI ComboText;
     public TextMeshProUGUI MultiplierText;
+
+    public GameObject ScoreScreen;
+    public TextMeshProUGUI ScoreScreenScoreText;
+    public TextMeshProUGUI ScoreScreenComboText;
+    public TextMeshProUGUI ScoreScreenMultiplierText;
+    public Button MainMenuButton;
     
     void Awake()
     {
@@ -17,6 +25,10 @@ public class GameUI : MonoBehaviour
             UpdateScore(0);
             UpdateCombo(0);
             UpdateMultiplier("1.00");
+
+            ScoreScreen.SetActive(true);
+            MainMenuButton.onClick.AddListener(() => SceneManager.LoadScene(0));
+            ScoreScreen.SetActive(false);
         }
         else
         {
@@ -38,5 +50,13 @@ public class GameUI : MonoBehaviour
     public void UpdateMultiplier(string mult)
     {
         MultiplierText.SetText("MULTIPLIER: " + mult + "x");
+    }
+
+    public void ShowSongEndedScoreScreen(int score, int highestCombo, float highestMult)
+    {
+        ScoreScreen.SetActive(true);
+        ScoreScreenScoreText.SetText("SCORE: " + score);
+        ScoreScreenComboText.SetText("HIGHEST COMBO: " + highestCombo);
+        ScoreScreenMultiplierText.SetText("HIGHEST MULTIPLIER: " + highestMult);
     }
 }
