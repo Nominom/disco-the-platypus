@@ -55,7 +55,7 @@
                     "name": "Jump",
                     "type": "Button",
                     "id": "f1ba0d36-48eb-4cd5-b651-1c94a6531f70",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -118,6 +118,15 @@
                     "name": "DanceInputDown",
                     "type": "Button",
                     "id": "4c2d22bd-121e-4566-9be8-f4dc17cb492b",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Play",
+                    "type": "Button",
+                    "id": "e6140354-235e-4862-a59c-d328612e895d",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -551,6 +560,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "DanceInputDown",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8a70706e-1d45-4ad4-b273-ac3065e47d34",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Play",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

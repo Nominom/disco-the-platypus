@@ -10,7 +10,8 @@ public class SongManager : MonoBehaviour
     public AudioSource audioSource;
     public SongScObj currentSong;
     public float songTime;
-
+    public bool isPaused;
+    
     public NoteSpawner noteSpawner;
     public Transform spawn;
     public Transform triggerPoint;
@@ -31,16 +32,23 @@ public class SongManager : MonoBehaviour
     public float niceTiming = 0.15f;
     public float missTiming = 0.3f;
     
-    
     private float halfPerfectTiming => perfectTiming * 0.5f;
     private float halfNiceTiming => niceTiming * 0.5f;
     private float halfMissTiming => missTiming * 0.5f;
     
     private HashSet<int> processedNotes  = new HashSet<int>();
     private int Score = 0;
+    
     public int ScoreForMiss = 10;
     public int ScoreForNice = 20;
     public int ScoreForPerfect = 50;
+    
+    [Header("Recording Mode")]
+    public bool recordingMode;
+    [Range(0.25f, 1.5f)]
+    public float recordingSpeed = 1f;
+    private InputAction playPauseAction;
+
 
     private int _combo = 0;
 
@@ -61,11 +69,22 @@ public class SongManager : MonoBehaviour
     void Start()
     {
         Instance = this;
+        isPaused = false;
         
-        if (SongSelector.Instance)
-            StartCoroutine(PlaySong(SongSelector.Instance.CurrentSong));
+        playPauseAction = InputSystem.actions.FindAction("Play");
+
+        if (recordingMode)
+        {
+            StartCoroutine(RecordSong(currentSong));
+        }
         else
-            StartCoroutine(PlaySong(currentSong));
+        {
+            if (SongSelector.Instance)
+                StartCoroutine(PlaySong(SongSelector.Instance.CurrentSong));
+            else
+                StartCoroutine(PlaySong(currentSong));
+        }
+        
     }
 
     private IEnumerator PlaySong(SongScObj song)
@@ -91,17 +110,25 @@ public class SongManager : MonoBehaviour
             
             int currentBeat = Mathf.FloorToInt((songTime) / beatInterval);
 
-            if (currentSpawnNote < song.notes.Count)
+
+            bool spawned;
+            do
             {
-                var note  = song.notes[currentSpawnNote];
-                float noteTime = note.beat * beatInterval;
-                if (songTime >= noteTime - noteSpawnOffsetInSongTime)
+                spawned = false;
+                if (currentSpawnNote < song.notes.Count)
                 {
-                    Debug.Log($"SPAWN: spawnTime: {songTime}, noteTime: {note.beat * beatInterval}, offset: {noteSpawnOffsetInSongTime}");
-                    noteSpawner.SpawnNote(currentSpawnNote, note);
-                    currentSpawnNote++;
+                    var note = song.notes[currentSpawnNote];
+                    float noteTime = note.beat * beatInterval;
+                    if (songTime >= noteTime - noteSpawnOffsetInSongTime)
+                    {
+                        Debug.Log(
+                            $"SPAWN: spawnTime: {songTime}, noteTime: {note.beat * beatInterval}, offset: {noteSpawnOffsetInSongTime}");
+                        noteSpawner.SpawnNote(currentSpawnNote, note);
+                        currentSpawnNote++;
+                        spawned = true;
+                    }
                 }
-            }
+            } while (spawned);
 
             NoteDef[] currentBeatNotes = song.notes.Where(x => (x.beat == currentBeat || x.beat == currentBeat + 1) && !processedNotes.Contains(x.index)).ToArray();
 
@@ -156,6 +183,106 @@ public class SongManager : MonoBehaviour
         }
     }
 
+    private IEnumerator RecordSong(SongScObj song)
+    {
+        while (!song.songClip.LoadAudioData())
+        {
+            yield return new WaitForSeconds(0.1f);
+        }
+
+        audioSource.loop = false;
+        audioSource.clip = song.songClip;
+        audioSource.Play();
+        songTime = 0;
+        
+        float noteSpawnOffsetInSongTime = Mathf.Abs(spawn.transform.position.z - triggerPoint.position.z) / song.notesSpeed;
+
+        int lastBeat = -1;
+
+        while (audioSource.isPlaying)
+        {
+            audioSource.pitch = recordingSpeed;
+            float beatInterval = 60f / Mathf.Max(1, song.bpm);
+            songTime = audioSource.time - (song.bpmOffset * beatInterval);
+            
+            int currentBeat = Mathf.FloorToInt((songTime) / beatInterval);
+            int currentBeatRounded = Mathf.FloorToInt((songTime) / beatInterval + 0.5f);
+
+            bool spawned;
+            do
+            {
+                spawned = false;
+                if (currentSpawnNote < song.notes.Count)
+                {
+                    var note = song.notes[currentSpawnNote];
+                    float noteTime = note.beat * beatInterval;
+                    if (songTime >= noteTime - noteSpawnOffsetInSongTime)
+                    {
+                        Debug.Log(
+                            $"SPAWN: spawnTime: {songTime}, noteTime: {note.beat * beatInterval}, offset: {noteSpawnOffsetInSongTime}");
+                        noteSpawner.SpawnNote(currentSpawnNote, note);
+                        currentSpawnNote++;
+                        spawned = true;
+                    }
+                }
+            } while (spawned);
+            
+            var input = DanceInput.GetInputPressed();
+            if (input != InputDir.None)
+            {
+                Debug.Log($"{input.ToString()} at time: {songTime} on beat {currentBeatRounded}");
+
+                var newNote = new NoteDef()
+                {
+                    beat = currentBeatRounded,
+                    subBeat = 0,
+                    noteType = NoteType.Tap,
+                    length = 0
+                };
+
+                if ((input & InputDir.Left) != 0 && !song.notes.Any(x =>  x.beat == currentBeatRounded && x.noteDir  == NoteDir.Left))
+                {
+                    song.notes.Add(newNote.With(NoteDir.Left));
+                    currentSpawnNote++;
+                }
+                if ((input & InputDir.Right) != 0 && !song.notes.Any(x =>  x.beat == currentBeatRounded && x.noteDir  == NoteDir.Right))
+                {
+                    song.notes.Add(newNote.With(NoteDir.Right));
+                    currentSpawnNote++;
+                }
+                if ((input & InputDir.Up) != 0 && !song.notes.Any(x =>  x.beat == currentBeatRounded && x.noteDir  == NoteDir.Up))
+                {
+                    song.notes.Add(newNote.With(NoteDir.Up));
+                    currentSpawnNote++;
+                }
+                if ((input & InputDir.Down) != 0 && !song.notes.Any(x =>  x.beat == currentBeatRounded && x.noteDir  == NoteDir.Down))
+                {
+                    song.notes.Add(newNote.With(NoteDir.Down));
+                    currentSpawnNote++;
+                }
+                
+                song.notes.Sort((x, y) => x.beat.CompareTo(y.beat));
+            }
+            
+            if (currentBeat >= 0 && currentBeat != lastBeat)
+            {
+                lastBeat = currentBeat;
+                if (metronomeEnabled)
+                {
+                    PlayMetronomeTick(currentBeat);
+                }
+            }
+
+            if (playPauseAction.WasPressedThisFrame())
+            {
+                PlayPause();
+            }
+            
+            yield return null;
+        }
+    }
+    
+
     private void TriggerBeat(int index, BeatHitType hit)
     {
         Debug.Log($"PLAY: index: {index}, hitType: {hit}, songTime: {songTime}");
@@ -189,6 +316,20 @@ public class SongManager : MonoBehaviour
 
         AudioSource source = metronomeSource != null ? metronomeSource : audioSource;
         source.PlayOneShot(metronomeClip, metronomeVolume);
+    }
+
+    private void PlayPause()
+    {
+        if (!isPaused)
+        {
+            audioSource.Pause();
+            isPaused = true;
+        }
+        else
+        {
+            audioSource.UnPause();
+            isPaused = false;
+        }
     }
 
     public int GetCurrentScore()

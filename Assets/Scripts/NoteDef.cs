@@ -10,4 +10,16 @@ public class NoteDef
     public NoteType noteType;
     public NoteDir noteDir;
     public float length;
+
+    public NoteDef With(NoteDir newDir)
+    {
+        return new NoteDef()
+        {
+            noteDir = newDir,
+            noteType = noteType,
+            subBeat = subBeat,
+            beat = beat,
+            length = length
+        };
+    }
 }
