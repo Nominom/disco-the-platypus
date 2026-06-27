@@ -964,16 +964,32 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2162167933427134304, guid: e0b108c398cf0451588bebbe98999674, type: 3}
+      propertyPath: maxBalls
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2162167933427134304, guid: e0b108c398cf0451588bebbe98999674, type: 3}
+      propertyPath: SpawnXMax
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2162167933427134304, guid: e0b108c398cf0451588bebbe98999674, type: 3}
+      propertyPath: SpawnXMin
+      value: -8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2162167933427134304, guid: e0b108c398cf0451588bebbe98999674, type: 3}
       propertyPath: SpawnZMax
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2162167933427134304, guid: e0b108c398cf0451588bebbe98999674, type: 3}
       propertyPath: SpawnZMin
-      value: -20
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2162167933427134304, guid: e0b108c398cf0451588bebbe98999674, type: 3}
+      propertyPath: SpawnHeightMin
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2162167933427134304, guid: e0b108c398cf0451588bebbe98999674, type: 3}
       propertyPath: SpawnThreshold
-      value: 1000
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 2162167933427134304, guid: e0b108c398cf0451588bebbe98999674, type: 3}
       propertyPath: DiscoBallPrefab
