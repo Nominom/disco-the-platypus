@@ -11,6 +11,7 @@ public class MainMenu : MonoBehaviour
     public Button StartGameButton;
     public TMP_Dropdown SongDropdown;
     private List<SongScObj> Songs;
+    public string GameSceneName = "GameScene";
 
     private void Start()
     {
@@ -37,6 +38,6 @@ public class MainMenu : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(GameSceneName);
     }
 }
