@@ -14,6 +14,11 @@ public class SongScObj : ScriptableObject
 
     private void OnValidate()
     {
+        notes.Sort((a, b) =>
+        {
+            int byBeat = a.beat.CompareTo(b.beat);
+            return byBeat != 0 ? byBeat : a.subBeat.CompareTo(b.subBeat);
+        });
         for (int i = 0; i < notes.Count; i++)
         {
             notes[i].index = i;

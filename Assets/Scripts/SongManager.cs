@@ -128,18 +128,20 @@ public class SongManager : MonoBehaviour
 
     private IEnumerator PlaySong(SongScObj song)
     {
+        currentSong = song;
+
         while (!song.songClip.LoadAudioData())
         {
             yield return new WaitForSeconds(0.1f);
         }
-        
+
         float noteSpawnOffsetInSongTime = Mathf.Abs(spawn.transform.position.z - triggerPoint.position.z) / song.notesSpeed;
         float beatInterval = 60f / Mathf.Max(1, song.bpm);
         
         for (int n = 0; n < song.notes.Count; n++)
         {
             var note = song.notes[n];
-            float noteTime = note.beat * beatInterval;
+            float noteTime = note.beat * beatInterval + (note.subBeat * 0.5f) * beatInterval;
             if (noteTime < noteSpawnOffsetInSongTime)
             {
                 float spawnOffset = (noteTime - noteSpawnOffsetInSongTime + (song.bpmOffset * beatInterval) + globalAudioOffset) * song.notesSpeed;
@@ -180,11 +182,11 @@ public class SongManager : MonoBehaviour
                 if (currentSpawnNote < song.notes.Count)
                 {
                     var note = song.notes[currentSpawnNote];
-                    float noteTime = note.beat * beatInterval;
-                    if (heardTime >= noteTime - noteSpawnOffsetInSongTime)
+                    float noteTime = note.beat * beatInterval + (note.subBeat * 0.5f) * beatInterval;
+                    if (heardTime >= noteTime - noteSpawnOffsetInSongTime) 
                     {
                         Debug.Log(
-                            $"SPAWN: spawnTime: {heardTime}, noteTime: {note.beat * beatInterval}, offset: {noteSpawnOffsetInSongTime}");
+                            $"SPAWN: spawnTime: {heardTime}, noteTime: {noteTime}, offset: {noteSpawnOffsetInSongTime}");
                         noteSpawner.SpawnNote(currentSpawnNote, note);
                         currentSpawnNote++;
                         spawned = true;
@@ -212,7 +214,7 @@ public class SongManager : MonoBehaviour
             }
             foreach (var note in currentBeatNotes)
             {
-                float noteTime = note.beat * beatInterval;
+                float noteTime = note.beat * beatInterval + (note.subBeat * 0.5f) * beatInterval;
                 // Debug.Log($"Note time:{noteTime} song {songTime}");
                 if (heardTime > noteTime + halfMissTiming)
                 {

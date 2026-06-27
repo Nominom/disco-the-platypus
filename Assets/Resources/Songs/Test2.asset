@@ -740,15 +740,15 @@ MonoBehaviour:
     length: 0
   - index: 120
     beat: 134
-    subBeat: 1
-    noteType: 0
-    noteDir: 1
-    length: 0
-  - index: 121
-    beat: 134
     subBeat: 0
     noteType: 0
     noteDir: 0
+    length: 0
+  - index: 121
+    beat: 134
+    subBeat: 1
+    noteType: 0
+    noteDir: 1
     length: 0
   - index: 122
     beat: 135
@@ -794,27 +794,27 @@ MonoBehaviour:
     length: 0
   - index: 129
     beat: 141
-    subBeat: 1
-    noteType: 0
-    noteDir: 1
-    length: 0
-  - index: 130
-    beat: 141
     subBeat: 0
     noteType: 0
     noteDir: 2
     length: 0
-  - index: 131
-    beat: 142
+  - index: 130
+    beat: 141
     subBeat: 1
     noteType: 0
     noteDir: 1
     length: 0
-  - index: 132
+  - index: 131
     beat: 142
     subBeat: 0
     noteType: 0
     noteDir: 0
+    length: 0
+  - index: 132
+    beat: 142
+    subBeat: 1
+    noteType: 0
+    noteDir: 1
     length: 0
   - index: 133
     beat: 143
@@ -842,15 +842,15 @@ MonoBehaviour:
     length: 0
   - index: 137
     beat: 146
-    subBeat: 1
-    noteType: 0
-    noteDir: 2
-    length: 0
-  - index: 138
-    beat: 146
     subBeat: 0
     noteType: 0
     noteDir: 1
+    length: 0
+  - index: 138
+    beat: 146
+    subBeat: 1
+    noteType: 0
+    noteDir: 2
     length: 0
   - index: 139
     beat: 148
@@ -866,15 +866,15 @@ MonoBehaviour:
     length: 0
   - index: 141
     beat: 149
-    subBeat: 1
-    noteType: 0
-    noteDir: 1
-    length: 0
-  - index: 142
-    beat: 149
     subBeat: 0
     noteType: 0
     noteDir: 2
+    length: 0
+  - index: 142
+    beat: 149
+    subBeat: 1
+    noteType: 0
+    noteDir: 1
     length: 0
   - index: 143
     beat: 150
@@ -902,15 +902,15 @@ MonoBehaviour:
     length: 0
   - index: 147
     beat: 153
-    subBeat: 1
-    noteType: 0
-    noteDir: 1
-    length: 0
-  - index: 148
-    beat: 153
     subBeat: 0
     noteType: 0
     noteDir: 2
+    length: 0
+  - index: 148
+    beat: 153
+    subBeat: 1
+    noteType: 0
+    noteDir: 1
     length: 0
   - index: 149
     beat: 154
@@ -932,15 +932,15 @@ MonoBehaviour:
     length: 0
   - index: 152
     beat: 158
-    subBeat: 1
-    noteType: 0
-    noteDir: 2
-    length: 0
-  - index: 153
-    beat: 158
     subBeat: 0
     noteType: 0
     noteDir: 3
+    length: 0
+  - index: 153
+    beat: 158
+    subBeat: 1
+    noteType: 0
+    noteDir: 2
     length: 0
   - index: 154
     beat: 159
@@ -1106,161 +1106,155 @@ MonoBehaviour:
     length: 0
   - index: 181
     beat: 183
-    subBeat: 1
+    subBeat: 0
     noteType: 0
     noteDir: 2
     length: 0
   - index: 182
-    beat: 184
-    subBeat: 1
-    noteType: 0
-    noteDir: 0
-    length: 0
-  - index: 183
     beat: 185
     subBeat: 0
     noteType: 0
     noteDir: 3
     length: 0
-  - index: 184
+  - index: 183
     beat: 186
     subBeat: 0
     noteType: 0
     noteDir: 0
     length: 0
-  - index: 185
+  - index: 184
     beat: 187
     subBeat: 0
     noteType: 0
     noteDir: 3
     length: 0
-  - index: 186
+  - index: 185
     beat: 188
     subBeat: 0
     noteType: 0
     noteDir: 1
     length: 0
-  - index: 187
+  - index: 186
     beat: 189
     subBeat: 1
     noteType: 0
     noteDir: 2
     length: 0
-  - index: 188
+  - index: 187
     beat: 190
     subBeat: 0
     noteType: 0
     noteDir: 1
     length: 0
-  - index: 189
+  - index: 188
     beat: 191
     subBeat: 1
     noteType: 0
     noteDir: 2
     length: 0
-  - index: 190
+  - index: 189
     beat: 192
     subBeat: 0
     noteType: 0
     noteDir: 0
     length: 0
-  - index: 191
+  - index: 190
     beat: 193
     subBeat: 1
     noteType: 0
     noteDir: 3
     length: 0
-  - index: 192
+  - index: 191
     beat: 194
     subBeat: 1
     noteType: 0
     noteDir: 0
     length: 0
-  - index: 193
+  - index: 192
     beat: 195
     subBeat: 0
     noteType: 0
     noteDir: 3
     length: 0
-  - index: 194
+  - index: 193
     beat: 196
     subBeat: 0
     noteType: 0
     noteDir: 0
     length: 0
-  - index: 195
+  - index: 194
     beat: 197
     subBeat: 0
     noteType: 0
     noteDir: 3
     length: 0
-  - index: 196
+  - index: 195
     beat: 198
     subBeat: 0
     noteType: 0
     noteDir: 0
     length: 0
-  - index: 197
+  - index: 196
     beat: 199
     subBeat: 0
     noteType: 0
     noteDir: 3
     length: 0
-  - index: 198
+  - index: 197
     beat: 200
     subBeat: 0
     noteType: 0
     noteDir: 1
     length: 0
-  - index: 199
+  - index: 198
     beat: 201
     subBeat: 0
     noteType: 0
     noteDir: 2
     length: 0
-  - index: 200
+  - index: 199
     beat: 202
     subBeat: 0
     noteType: 0
     noteDir: 1
     length: 0
-  - index: 201
+  - index: 200
     beat: 203
     subBeat: 0
     noteType: 0
     noteDir: 2
     length: 0
-  - index: 202
+  - index: 201
     beat: 204
     subBeat: 0
     noteType: 0
     noteDir: 1
     length: 0
-  - index: 203
+  - index: 202
     beat: 205
     subBeat: 0
     noteType: 0
     noteDir: 2
     length: 0
-  - index: 204
+  - index: 203
     beat: 206
     subBeat: 0
     noteType: 0
     noteDir: 1
     length: 0
-  - index: 205
+  - index: 204
     beat: 207
     subBeat: 0
     noteType: 0
     noteDir: 2
     length: 0
-  - index: 206
+  - index: 205
     beat: 208
     subBeat: 0
     noteType: 0
     noteDir: 0
     length: 0
-  - index: 207
+  - index: 206
     beat: 208
     subBeat: 0
     noteType: 0
