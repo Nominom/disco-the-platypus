@@ -340,6 +340,8 @@ public class SongManager : MonoBehaviour
             
             yield return null;
         }
+
+        Shoppa.Instance.AddMonies(Score);
     }
     
 

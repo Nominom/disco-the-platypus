@@ -11,6 +11,7 @@ public class MainMenu : MonoBehaviour
     public Button StartGameButton;
     public Button CalibrationButton;
     public Button QuitButton;
+    public Button ShoppaButton;
     public TMP_Dropdown SongDropdown;
     private List<SongScObj> Songs;
     public string GameSceneName = "GameScene";
@@ -20,6 +21,7 @@ public class MainMenu : MonoBehaviour
         StartGameButton.onClick.AddListener(StartGame);
         CalibrationButton.onClick.AddListener(Calibration);
         QuitButton.onClick.AddListener(QuitGame);
+        ShoppaButton.onClick.AddListener(Shoppa);
         
         SongDropdown.options.Clear();
 
@@ -54,5 +56,10 @@ public class MainMenu : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    public void Shoppa()
+    {
+        SceneManager.LoadScene("Shoppa");
     }
 }
