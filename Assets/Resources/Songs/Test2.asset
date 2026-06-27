@@ -334,13 +334,13 @@ MonoBehaviour:
     beat: 64
     subBeat: 0
     noteType: 0
-    noteDir: 3
+    noteDir: 0
     length: 0
   - index: 53
     beat: 64
     subBeat: 0
     noteType: 0
-    noteDir: 0
+    noteDir: 3
     length: 0
   - index: 54
     beat: 65
@@ -436,13 +436,13 @@ MonoBehaviour:
     beat: 78
     subBeat: 0
     noteType: 0
-    noteDir: 0
+    noteDir: 3
     length: 0
   - index: 70
     beat: 78
     subBeat: 0
     noteType: 0
-    noteDir: 3
+    noteDir: 0
     length: 0
   - index: 71
     beat: 80
@@ -562,13 +562,13 @@ MonoBehaviour:
     beat: 100
     subBeat: 0
     noteType: 0
-    noteDir: 0
+    noteDir: 3
     length: 0
   - index: 91
     beat: 100
     subBeat: 0
     noteType: 0
-    noteDir: 3
+    noteDir: 0
     length: 0
   - index: 92
     beat: 104
@@ -694,13 +694,13 @@ MonoBehaviour:
     beat: 124
     subBeat: 0
     noteType: 0
-    noteDir: 3
+    noteDir: 0
     length: 0
   - index: 113
     beat: 124
     subBeat: 0
     noteType: 0
-    noteDir: 0
+    noteDir: 3
     length: 0
   - index: 114
     beat: 128
@@ -718,13 +718,13 @@ MonoBehaviour:
     beat: 132
     subBeat: 0
     noteType: 0
-    noteDir: 0
+    noteDir: 3
     length: 0
   - index: 117
     beat: 132
     subBeat: 0
     noteType: 0
-    noteDir: 3
+    noteDir: 0
     length: 0
   - index: 118
     beat: 133
@@ -740,15 +740,15 @@ MonoBehaviour:
     length: 0
   - index: 120
     beat: 134
-    subBeat: 0
-    noteType: 0
-    noteDir: 0
-    length: 0
-  - index: 121
-    beat: 134
     subBeat: 1
     noteType: 0
     noteDir: 1
+    length: 0
+  - index: 121
+    beat: 134
+    subBeat: 0
+    noteType: 0
+    noteDir: 0
     length: 0
   - index: 122
     beat: 135
@@ -784,25 +784,25 @@ MonoBehaviour:
     beat: 140
     subBeat: 0
     noteType: 0
-    noteDir: 3
+    noteDir: 0
     length: 0
   - index: 128
     beat: 140
     subBeat: 0
     noteType: 0
-    noteDir: 0
+    noteDir: 3
     length: 0
   - index: 129
-    beat: 141
-    subBeat: 0
-    noteType: 0
-    noteDir: 2
-    length: 0
-  - index: 130
     beat: 141
     subBeat: 1
     noteType: 0
     noteDir: 1
+    length: 0
+  - index: 130
+    beat: 141
+    subBeat: 0
+    noteType: 0
+    noteDir: 2
     length: 0
   - index: 131
     beat: 142
@@ -826,77 +826,443 @@ MonoBehaviour:
     beat: 144
     subBeat: 0
     noteType: 0
-    noteDir: 0
-    length: 0
-  - index: 135
-    beat: 145
-    subBeat: 0
-    noteType: 0
     noteDir: 3
     length: 0
+  - index: 135
+    beat: 144
+    subBeat: 0
+    noteType: 0
+    noteDir: 0
+    length: 0
   - index: 136
+    beat: 145
+    subBeat: 1
+    noteType: 0
+    noteDir: 2
+    length: 0
+  - index: 137
+    beat: 146
+    subBeat: 1
+    noteType: 0
+    noteDir: 2
+    length: 0
+  - index: 138
     beat: 146
     subBeat: 0
     noteType: 0
     noteDir: 1
     length: 0
-  - index: 137
-    beat: 147
-    subBeat: 0
-    noteType: 0
-    noteDir: 2
-    length: 0
-  - index: 138
+  - index: 139
     beat: 148
     subBeat: 0
     noteType: 0
     noteDir: 0
     length: 0
-  - index: 139
-    beat: 149
+  - index: 140
+    beat: 148
     subBeat: 0
     noteType: 0
     noteDir: 3
     length: 0
-  - index: 140
-    beat: 150
-    subBeat: 0
+  - index: 141
+    beat: 149
+    subBeat: 1
     noteType: 0
     noteDir: 1
     length: 0
-  - index: 141
+  - index: 142
+    beat: 149
+    subBeat: 0
+    noteType: 0
+    noteDir: 2
+    length: 0
+  - index: 143
+    beat: 150
+    subBeat: 0
+    noteType: 0
+    noteDir: 0
+    length: 0
+  - index: 144
+    beat: 150
+    subBeat: 1
+    noteType: 0
+    noteDir: 1
+    length: 0
+  - index: 145
     beat: 151
     subBeat: 0
     noteType: 0
     noteDir: 2
     length: 0
-  - index: 142
+  - index: 146
     beat: 152
     subBeat: 0
     noteType: 0
     noteDir: 0
     length: 0
-  - index: 143
+  - index: 147
     beat: 153
-    subBeat: 0
-    noteType: 0
-    noteDir: 3
-    length: 0
-  - index: 144
-    beat: 154
-    subBeat: 0
+    subBeat: 1
     noteType: 0
     noteDir: 1
     length: 0
-  - index: 145
-    beat: 155
+  - index: 148
+    beat: 153
     subBeat: 0
     noteType: 0
     noteDir: 2
     length: 0
-  - index: 146
+  - index: 149
+    beat: 154
+    subBeat: 0
+    noteType: 0
+    noteDir: 2
+    length: 0
+  - index: 150
     beat: 156
     subBeat: 0
     noteType: 0
+    noteDir: 3
+    length: 0
+  - index: 151
+    beat: 157
+    subBeat: 0
+    noteType: 0
     noteDir: 0
+    length: 0
+  - index: 152
+    beat: 158
+    subBeat: 1
+    noteType: 0
+    noteDir: 2
+    length: 0
+  - index: 153
+    beat: 158
+    subBeat: 0
+    noteType: 0
+    noteDir: 3
+    length: 0
+  - index: 154
+    beat: 159
+    subBeat: 0
+    noteType: 0
+    noteDir: 0
+    length: 0
+  - index: 155
+    beat: 159
+    subBeat: 0
+    noteType: 0
+    noteDir: 3
+    length: 0
+  - index: 156
+    beat: 160
+    subBeat: 0
+    noteType: 0
+    noteDir: 1
+    length: 0
+  - index: 157
+    beat: 160
+    subBeat: 0
+    noteType: 0
+    noteDir: 2
+    length: 0
+  - index: 158
+    beat: 161
+    subBeat: 0
+    noteType: 0
+    noteDir: 0
+    length: 0
+  - index: 159
+    beat: 162
+    subBeat: 0
+    noteType: 0
+    noteDir: 3
+    length: 0
+  - index: 160
+    beat: 163
+    subBeat: 0
+    noteType: 0
+    noteDir: 1
+    length: 0
+  - index: 161
+    beat: 164
+    subBeat: 0
+    noteType: 0
+    noteDir: 2
+    length: 0
+  - index: 162
+    beat: 165
+    subBeat: 0
+    noteType: 0
+    noteDir: 0
+    length: 0
+  - index: 163
+    beat: 166
+    subBeat: 0
+    noteType: 0
+    noteDir: 1
+    length: 0
+  - index: 164
+    beat: 167
+    subBeat: 0
+    noteType: 0
+    noteDir: 2
+    length: 0
+  - index: 165
+    beat: 168
+    subBeat: 0
+    noteType: 0
+    noteDir: 3
+    length: 0
+  - index: 166
+    beat: 169
+    subBeat: 0
+    noteType: 0
+    noteDir: 0
+    length: 0
+  - index: 167
+    beat: 170
+    subBeat: 0
+    noteType: 0
+    noteDir: 3
+    length: 0
+  - index: 168
+    beat: 171
+    subBeat: 0
+    noteType: 0
+    noteDir: 0
+    length: 0
+  - index: 169
+    beat: 172
+    subBeat: 0
+    noteType: 0
+    noteDir: 2
+    length: 0
+  - index: 170
+    beat: 173
+    subBeat: 0
+    noteType: 0
+    noteDir: 0
+    length: 0
+  - index: 171
+    beat: 174
+    subBeat: 0
+    noteType: 0
+    noteDir: 3
+    length: 0
+  - index: 172
+    beat: 175
+    subBeat: 0
+    noteType: 0
+    noteDir: 2
+    length: 0
+  - index: 173
+    beat: 176
+    subBeat: 0
+    noteType: 0
+    noteDir: 3
+    length: 0
+  - index: 174
+    beat: 176
+    subBeat: 0
+    noteType: 0
+    noteDir: 0
+    length: 0
+  - index: 175
+    beat: 177
+    subBeat: 0
+    noteType: 0
+    noteDir: 0
+    length: 0
+  - index: 176
+    beat: 178
+    subBeat: 0
+    noteType: 0
+    noteDir: 3
+    length: 0
+  - index: 177
+    beat: 179
+    subBeat: 0
+    noteType: 0
+    noteDir: 0
+    length: 0
+  - index: 178
+    beat: 180
+    subBeat: 0
+    noteType: 0
+    noteDir: 1
+    length: 0
+  - index: 179
+    beat: 181
+    subBeat: 0
+    noteType: 0
+    noteDir: 2
+    length: 0
+  - index: 180
+    beat: 182
+    subBeat: 0
+    noteType: 0
+    noteDir: 1
+    length: 0
+  - index: 181
+    beat: 183
+    subBeat: 1
+    noteType: 0
+    noteDir: 2
+    length: 0
+  - index: 182
+    beat: 184
+    subBeat: 1
+    noteType: 0
+    noteDir: 0
+    length: 0
+  - index: 183
+    beat: 185
+    subBeat: 0
+    noteType: 0
+    noteDir: 3
+    length: 0
+  - index: 184
+    beat: 186
+    subBeat: 0
+    noteType: 0
+    noteDir: 0
+    length: 0
+  - index: 185
+    beat: 187
+    subBeat: 0
+    noteType: 0
+    noteDir: 3
+    length: 0
+  - index: 186
+    beat: 188
+    subBeat: 0
+    noteType: 0
+    noteDir: 1
+    length: 0
+  - index: 187
+    beat: 189
+    subBeat: 1
+    noteType: 0
+    noteDir: 2
+    length: 0
+  - index: 188
+    beat: 190
+    subBeat: 0
+    noteType: 0
+    noteDir: 1
+    length: 0
+  - index: 189
+    beat: 191
+    subBeat: 1
+    noteType: 0
+    noteDir: 2
+    length: 0
+  - index: 190
+    beat: 192
+    subBeat: 0
+    noteType: 0
+    noteDir: 0
+    length: 0
+  - index: 191
+    beat: 193
+    subBeat: 1
+    noteType: 0
+    noteDir: 3
+    length: 0
+  - index: 192
+    beat: 194
+    subBeat: 1
+    noteType: 0
+    noteDir: 0
+    length: 0
+  - index: 193
+    beat: 195
+    subBeat: 0
+    noteType: 0
+    noteDir: 3
+    length: 0
+  - index: 194
+    beat: 196
+    subBeat: 0
+    noteType: 0
+    noteDir: 0
+    length: 0
+  - index: 195
+    beat: 197
+    subBeat: 0
+    noteType: 0
+    noteDir: 3
+    length: 0
+  - index: 196
+    beat: 198
+    subBeat: 0
+    noteType: 0
+    noteDir: 0
+    length: 0
+  - index: 197
+    beat: 199
+    subBeat: 0
+    noteType: 0
+    noteDir: 3
+    length: 0
+  - index: 198
+    beat: 200
+    subBeat: 0
+    noteType: 0
+    noteDir: 1
+    length: 0
+  - index: 199
+    beat: 201
+    subBeat: 0
+    noteType: 0
+    noteDir: 2
+    length: 0
+  - index: 200
+    beat: 202
+    subBeat: 0
+    noteType: 0
+    noteDir: 1
+    length: 0
+  - index: 201
+    beat: 203
+    subBeat: 0
+    noteType: 0
+    noteDir: 2
+    length: 0
+  - index: 202
+    beat: 204
+    subBeat: 0
+    noteType: 0
+    noteDir: 1
+    length: 0
+  - index: 203
+    beat: 205
+    subBeat: 0
+    noteType: 0
+    noteDir: 2
+    length: 0
+  - index: 204
+    beat: 206
+    subBeat: 0
+    noteType: 0
+    noteDir: 1
+    length: 0
+  - index: 205
+    beat: 207
+    subBeat: 0
+    noteType: 0
+    noteDir: 2
+    length: 0
+  - index: 206
+    beat: 208
+    subBeat: 0
+    noteType: 0
+    noteDir: 0
+    length: 0
+  - index: 207
+    beat: 208
+    subBeat: 0
+    noteType: 0
+    noteDir: 3
     length: 0

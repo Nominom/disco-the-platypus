@@ -110,6 +110,7 @@ public class SongManager : MonoBehaviour
 
         if (recordingMode)
         {
+            globalAudioOffset = PlayerPrefs.GetFloat("GlobalAudioOffset");
             StartCoroutine(RecordSong(currentSong));
         }
         else
