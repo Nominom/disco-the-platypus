@@ -643,7 +643,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  pulseTime: 0
+  pulseTime: 0.3
   numBeats: 20
 --- !u!1 &1518935838
 GameObject:
