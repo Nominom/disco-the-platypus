@@ -340,6 +340,7 @@ public class SongManager : MonoBehaviour
         {
             Combo++;
             GameUI.Instance.UpdateScore(Score);
+            NiceUI.Instance.SpawnNice(hit);
         }
     }
 
