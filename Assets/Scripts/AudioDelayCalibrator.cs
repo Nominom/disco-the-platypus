@@ -16,6 +16,7 @@ public class AudioDelayCalibrator : MonoBehaviour
     public RectTransform text;
     public AnimationCurve textPulse;
     public float pulseTime;
+    private Coroutine pulseCoroutine;
     
     public int numBeats = 30;
     private InputAction anyAction;
@@ -60,10 +61,16 @@ public class AudioDelayCalibrator : MonoBehaviour
                 {
                     delays.Add(currWait);
                     canPress = false;
-                    StartCoroutine(PulseText());
+                    pulseCoroutine = StartCoroutine(PulseText());
 
                     text.GetComponentInChildren<TextMeshProUGUI>().text =
                         $"Match the beat by pressing any key\n{(int)(GetMedianDelay() * 1000)}ms";
+                }else if (anyAction.WasPressedThisFrame())
+                {
+                    if (pulseCoroutine == null)
+                    {
+                        pulseCoroutine = StartCoroutine(PulseText());
+                    }
                 }
             }
         }
@@ -77,14 +84,19 @@ public class AudioDelayCalibrator : MonoBehaviour
                 SongSelector.Instance.SaveAudioOffset();
                 Debug.Log("Saved offset: " + medianDelay);
             }
+            
+            text.GetComponentInChildren<TextMeshProUGUI>().text =
+                $"Saved delay!\n{(int)(GetMedianDelay() * 1000)}ms";
         }
         else
         {
             Debug.LogError("NOT ENOUGH BEAT");
+            
+            
+            text.GetComponentInChildren<TextMeshProUGUI>().text =
+                $"Not enough beats to save delay.";
         }
         
-        text.GetComponentInChildren<TextMeshProUGUI>().text =
-            $"Saved delay!\n{(int)(GetMedianDelay() * 1000)}ms";
 
         yield return new WaitForSeconds(3);
 
@@ -113,5 +125,6 @@ public class AudioDelayCalibrator : MonoBehaviour
             yield return null;
         }
         text.transform.localScale = new Vector3(1f, 1f, 1f);
+        pulseCoroutine = null;
     }
 }
