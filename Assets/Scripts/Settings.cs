@@ -6,19 +6,22 @@ using UnityEngine.UI;
 public class Settings : MonoBehaviour
 {
     public Toggle MetronomeToggle;
+    public Button BackButton;
 
     private void Awake()
     {
-        MetronomeToggle.isOn = PlayerPrefs.GetInt("Metronome") == 1;
+        MetronomeToggle.isOn = PlayerPrefs.GetInt("Metronome", 1) == 1;
         MetronomeToggle.onValueChanged.AddListener(MetronomeToggled);
+        
+        BackButton.onClick.AddListener(Back);
     }
 
-    private void MetronomeToggled(bool isOn)
+    public void MetronomeToggled(bool isOn)
     {
         PlayerPrefs.SetInt("Metronome", isOn ? 1 : 0);
     }
 
-    private void Back()
+    public void Back()
     {
         PlayerPrefs.Save();
         SceneManager.LoadScene("MainMenuScene");

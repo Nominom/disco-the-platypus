@@ -1544,6 +1544,7 @@ MonoBehaviour:
   CalibrationButton: {fileID: 1198984381152025771}
   QuitButton: {fileID: 5894424380555438096}
   ShoppaButton: {fileID: 6890952321821488387}
+  SettingsButton: {fileID: 5653860725988517416}
   SongDropdown: {fileID: 2506843008952331084}
   GameSceneName: GameScene
 --- !u!1 &4299101865549432222
