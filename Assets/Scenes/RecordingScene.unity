@@ -768,6 +768,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5997406826854144139, guid: e8bbf66526ff54da0a3e9217105cc422, type: 3}
+      propertyPath: globalAudioOffset
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5997406826854144139, guid: e8bbf66526ff54da0a3e9217105cc422, type: 3}
       propertyPath: playPauseAction.m_Name
       value: Play Pause
       objectReference: {fileID: 0}
