@@ -5,6 +5,7 @@ public class SongSelector : MonoBehaviour
     public static SongSelector Instance;
 
     public SongScObj CurrentSong;
+    public FlagScObj CurrentFlag;
     public float globalAudioOffset;
     
     public void Awake()

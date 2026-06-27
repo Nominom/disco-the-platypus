@@ -16,6 +16,10 @@ public class MainMenu : MonoBehaviour
     public TMP_Dropdown SongDropdown;
     private List<SongScObj> Songs;
     public string GameSceneName = "GameScene";
+    public List<FlagScObj> Flags;
+    private FlagScObj currentFlag;
+    public int flagIndex;
+    public Image FlagSprite;
 
     private void Start()
     {
@@ -52,6 +56,7 @@ public class MainMenu : MonoBehaviour
 
     public void StartGame()
     {
+        SongSelector.Instance.CurrentFlag = currentFlag;
         SceneManager.LoadScene(GameSceneName);
     }
 
@@ -68,5 +73,34 @@ public class MainMenu : MonoBehaviour
     public void Shoppa()
     {
         SceneManager.LoadScene("Shoppa");
+    }
+
+    public void NextFlag()
+    {
+        flagIndex++;
+        if (flagIndex >= Flags.Count)
+        {
+            flagIndex = 0;
+        }
+        SwitchFlag();
+    }
+
+    public void PreviousFlag()
+    {
+        if (flagIndex > 0)
+        {
+            flagIndex--;
+        }
+        else
+        {
+            flagIndex = Flags.Count - 1;
+        }
+        SwitchFlag();
+    }
+
+    private void SwitchFlag()
+    {
+        currentFlag = Flags[flagIndex];
+        FlagSprite.sprite = currentFlag.FlagSprite;
     }
 }

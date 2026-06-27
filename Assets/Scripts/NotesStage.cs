@@ -6,15 +6,6 @@ public class NotesStage : MonoBehaviour
     
     void Start()
     {
-        string stageMat = PlayerPrefs.GetString("NotesStageMat");
-
-        switch (stageMat)
-        {
-            case "Rainbow":
-                GetComponent<Renderer>().material = RainbowMat;
-                break;
-            default:
-                break;
-        }
+        GetComponent<Renderer>().material = SongSelector.Instance.CurrentFlag.FlagMaterial;
     }
 }
