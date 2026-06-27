@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 public class SongManager : MonoBehaviour
 {
@@ -37,19 +38,29 @@ public class SongManager : MonoBehaviour
     private float halfMissTiming => missTiming * 0.5f;
     
     private HashSet<int> processedNotes  = new HashSet<int>();
-    private int Score = 0;
+    private int _score = 0;
+
+    public int Score
+    {
+        get => _score;
+        set
+        {
+            _score = Mathf.RoundToInt(value * _scoreMultiplier);
+        }
+    }
     
-    public int ScoreForMiss = 10;
+    public int ScoreForGood = 10;
     public int ScoreForNice = 20;
     public int ScoreForPerfect = 50;
+    
+    private float _scoreMultiplier = 1f;
     
     [Header("Recording Mode")]
     public bool recordingMode;
     [Range(0.25f, 1.5f)]
     public float recordingSpeed = 1f;
     private InputAction playPauseAction;
-
-
+    
     private int _combo = 0;
 
     public int Combo
@@ -61,7 +72,9 @@ public class SongManager : MonoBehaviour
         set
         {
             _combo = value;
+            _scoreMultiplier = 1f + value / 10f;
             GameUI.Instance.UpdateCombo(_combo);
+            GameUI.Instance.UpdateMultiplier(_scoreMultiplier.ToString("F"));
         }
     }
 
@@ -289,8 +302,8 @@ public class SongManager : MonoBehaviour
         processedNotes.Add(index);
         switch (hit)
         {
-            case BeatHitType.Miss:
-                Score += ScoreForMiss;
+            case BeatHitType.Good:
+                Score += ScoreForGood;
                 break;
             case BeatHitType.Nice:
                 Score += ScoreForNice;
@@ -303,7 +316,7 @@ public class SongManager : MonoBehaviour
         }
 
         Combo++;
-        GameUI.Instance.UpdateScore(Score);
+        GameUI.Instance.UpdateScore(_score);
     }
 
     private void PlayMetronomeTick(int currentBeat)
@@ -334,6 +347,6 @@ public class SongManager : MonoBehaviour
 
     public int GetCurrentScore()
     {
-        return Score;
+        return _score;
     }
 }

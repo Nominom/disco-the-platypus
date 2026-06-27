@@ -7,6 +7,7 @@ public class GameUI : MonoBehaviour
     
     public TextMeshProUGUI ScoreText;
     public TextMeshProUGUI ComboText;
+    public TextMeshProUGUI MultiplierText;
     
     void Awake()
     {
@@ -15,6 +16,7 @@ public class GameUI : MonoBehaviour
             Instance = this;
             UpdateScore(0);
             UpdateCombo(0);
+            UpdateMultiplier("1.00");
         }
         else
         {
@@ -31,5 +33,10 @@ public class GameUI : MonoBehaviour
     public void UpdateCombo(int combo)
     {
         ComboText.SetText("COMBO: " + combo);
+    }
+
+    public void UpdateMultiplier(string mult)
+    {
+        MultiplierText.SetText("MULTIPLIER: " + mult + "x");
     }
 }
