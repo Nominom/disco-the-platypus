@@ -219,6 +219,7 @@ public class SongManager : MonoBehaviour
 
     private void SongEnded()
     {
+        Shoppa.Instance.AddMonies(Score);
         GameUI.Instance.ShowSongEndedScoreScreen(Score, _highestCombo, _highestMult);
     }
 
@@ -345,8 +346,6 @@ public class SongManager : MonoBehaviour
             
             yield return null;
         }
-
-        Shoppa.Instance.AddMonies(Score);
     }
     
 
