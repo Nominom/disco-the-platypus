@@ -60,7 +60,9 @@ public class SongManager : MonoBehaviour
     [Range(0.25f, 1.5f)]
     public float recordingSpeed = 1f;
     private InputAction playPauseAction;
-    
+    private InputAction eraseAction;
+    private InputAction rewindAction;
+
     private int _combo = 0;
     private int _highestCombo = 0;
     private float _highestMult = 1.0f;
@@ -91,6 +93,8 @@ public class SongManager : MonoBehaviour
         isPaused = false;
         
         playPauseAction = InputSystem.actions.FindAction("Play");
+        eraseAction = InputSystem.actions.FindAction("Erase");
+        rewindAction = InputSystem.actions.FindAction("Rewind");
 
         if (recordingMode)
         {
@@ -266,22 +270,22 @@ public class SongManager : MonoBehaviour
                     length = 0
                 };
 
-                if ((input & InputDir.Left) != 0 && !song.notes.Any(x =>  x.beat == currentBeatRounded && x.noteDir  == NoteDir.Left))
+                if ((input & InputDir.Left) != 0 && !song.notes.Any(x =>  x.beat == currentBeatRounded && x.noteDir == NoteDir.Left))
                 {
                     song.notes.Add(newNote.With(NoteDir.Left));
                     currentSpawnNote++;
                 }
-                if ((input & InputDir.Right) != 0 && !song.notes.Any(x =>  x.beat == currentBeatRounded && x.noteDir  == NoteDir.Right))
+                if ((input & InputDir.Right) != 0 && !song.notes.Any(x =>  x.beat == currentBeatRounded && x.noteDir == NoteDir.Right))
                 {
                     song.notes.Add(newNote.With(NoteDir.Right));
                     currentSpawnNote++;
                 }
-                if ((input & InputDir.Up) != 0 && !song.notes.Any(x =>  x.beat == currentBeatRounded && x.noteDir  == NoteDir.Up))
+                if ((input & InputDir.Up) != 0 && !song.notes.Any(x =>  x.beat == currentBeatRounded && x.noteDir == NoteDir.Up))
                 {
                     song.notes.Add(newNote.With(NoteDir.Up));
                     currentSpawnNote++;
                 }
-                if ((input & InputDir.Down) != 0 && !song.notes.Any(x =>  x.beat == currentBeatRounded && x.noteDir  == NoteDir.Down))
+                if ((input & InputDir.Down) != 0 && !song.notes.Any(x =>  x.beat == currentBeatRounded && x.noteDir == NoteDir.Down))
                 {
                     song.notes.Add(newNote.With(NoteDir.Down));
                     currentSpawnNote++;
@@ -302,6 +306,31 @@ public class SongManager : MonoBehaviour
             if (playPauseAction.WasPressedThisFrame())
             {
                 PlayPause();
+            }
+            if (eraseAction.WasPressedThisFrame())
+            {
+                song.notes.RemoveAll(x => x.beat == currentBeatRounded);
+            }
+            if (rewindAction.WasPressedThisFrame())
+            {
+                float newTime = Mathf.Clamp(audioSource.time - 5, 0, song.songClip.length);
+                audioSource.time = newTime;
+
+                foreach (var note in song.notes)
+                {
+                    float noteTime = note.beat * beatInterval;
+                    if (newTime < noteTime - noteSpawnOffsetInSongTime)
+                    {
+                        currentSpawnNote = note.index;
+                        Debug.Log("Rewinded to note: " + currentSpawnNote);
+                        break;
+                    }
+                }
+                
+                foreach (var noteScript in FindObjectsByType<NoteScript>())
+                {
+                    Destroy(noteScript.gameObject);
+                }
             }
             
             yield return null;

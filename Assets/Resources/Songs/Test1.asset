@@ -25,16 +25,16 @@ MonoBehaviour:
     noteDir: 0
     length: 0
   - index: 1
-    beat: 8
-    subBeat: 0
-    noteType: 0
-    noteDir: 2
-    length: 0
-  - index: 2
     beat: 12
     subBeat: 0
     noteType: 0
     noteDir: 1
+    length: 0
+  - index: 2
+    beat: 15
+    subBeat: 0
+    noteType: 0
+    noteDir: 3
     length: 0
   - index: 3
     beat: 16
@@ -115,26 +115,32 @@ MonoBehaviour:
     noteDir: 2
     length: 0
   - index: 16
-    beat: 30
+    beat: 29
     subBeat: 0
     noteType: 0
-    noteDir: 0
+    noteDir: 1
     length: 0
   - index: 17
     beat: 30
     subBeat: 0
     noteType: 0
-    noteDir: 3
+    noteDir: 0
     length: 0
   - index: 18
-    beat: 31
+    beat: 30
     subBeat: 0
     noteType: 0
-    noteDir: 2
+    noteDir: 3
     length: 0
   - index: 19
     beat: 31
     subBeat: 0
     noteType: 0
     noteDir: 1
+    length: 0
+  - index: 20
+    beat: 31
+    subBeat: 0
+    noteType: 0
+    noteDir: 2
     length: 0
