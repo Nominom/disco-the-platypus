@@ -822,6 +822,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5120165822407510315}
     - target: {fileID: 5997406826854144139, guid: e8bbf66526ff54da0a3e9217105cc422, type: 3}
+      propertyPath: currentSong
+      value: 
+      objectReference: {fileID: 11400000, guid: 27a67b178a33b41d688f196b2f8583ac, type: 2}
+    - target: {fileID: 5997406826854144139, guid: e8bbf66526ff54da0a3e9217105cc422, type: 3}
       propertyPath: noteSpawner
       value: 
       objectReference: {fileID: 5120165822407510314}
@@ -835,7 +839,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5997406826854144139, guid: e8bbf66526ff54da0a3e9217105cc422, type: 3}
       propertyPath: recordingSpeed
-      value: 0.691
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5997406826854144139, guid: e8bbf66526ff54da0a3e9217105cc422, type: 3}
       propertyPath: globalAudioOffset
