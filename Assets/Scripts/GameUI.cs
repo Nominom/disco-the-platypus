@@ -6,6 +6,7 @@ public class GameUI : MonoBehaviour
     public static GameUI Instance;
     
     public TextMeshProUGUI ScoreText;
+    public TextMeshProUGUI ComboText;
     
     void Awake()
     {
@@ -13,6 +14,7 @@ public class GameUI : MonoBehaviour
         {
             Instance = this;
             UpdateScore(0);
+            UpdateCombo(0);
         }
         else
         {
@@ -24,5 +26,10 @@ public class GameUI : MonoBehaviour
     public void UpdateScore(int score)
     {
         ScoreText.SetText("SCORE: " + score);
+    }
+
+    public void UpdateCombo(int combo)
+    {
+        ComboText.SetText("COMBO: " + combo);
     }
 }

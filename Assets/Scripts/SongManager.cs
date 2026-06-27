@@ -42,6 +42,21 @@ public class SongManager : MonoBehaviour
     public int ScoreForNice = 20;
     public int ScoreForPerfect = 50;
 
+    private int _combo = 0;
+
+    public int Combo
+    {
+        get
+        {
+            return _combo;
+        }
+        set
+        {
+            _combo = value;
+            GameUI.Instance.UpdateCombo(_combo);
+        }
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -94,6 +109,17 @@ public class SongManager : MonoBehaviour
             if (input != InputDir.None)
             {
                 Debug.Log($"{input.ToString()} at time: {songTime}");
+                bool inputHit = false;
+                foreach (var note in currentBeatNotes)
+                {
+                    if (input.MatchesNote(note.noteDir))
+                    {
+                        inputHit = true;
+                    }
+                }
+                
+                if (!inputHit)
+                    Combo = 0;
             }
             foreach (var note in currentBeatNotes)
             {
@@ -148,6 +174,8 @@ public class SongManager : MonoBehaviour
             default:
                 break;
         }
+
+        Combo++;
         GameUI.Instance.UpdateScore(Score);
     }
 
