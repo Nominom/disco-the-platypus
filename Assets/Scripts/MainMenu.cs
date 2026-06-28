@@ -56,7 +56,7 @@ public class MainMenu : MonoBehaviour
 
     public void StartGame()
     {
-        SongSelector.Instance.CurrentFlag = currentFlag;
+        SongSelector.Instance.CurrentFlag = currentFlag ?? Resources.Load<FlagScObj>("Flags/Gay");
         SceneManager.LoadScene(GameSceneName);
     }
 
