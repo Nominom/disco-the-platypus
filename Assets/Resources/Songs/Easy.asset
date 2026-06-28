@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SongScObj
   songName: Easy
   songClip: {fileID: 8300000, guid: 2c5932abe10f6cec49dd4054a28241b5, type: 3}
-  notesSpeed: 1
+  notesSpeed: 2
   bpm: 115
   bpmOffset: 0
   notes:

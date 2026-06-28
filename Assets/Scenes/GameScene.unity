@@ -1273,6 +1273,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6926298199990585615, guid: f4362ef97052386ed92953f52e1f661c, type: 3}
     - target: {fileID: 5997406826854144139, guid: e8bbf66526ff54da0a3e9217105cc422, type: 3}
+      propertyPath: missTiming
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 5997406826854144139, guid: e8bbf66526ff54da0a3e9217105cc422, type: 3}
+      propertyPath: niceTiming
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5997406826854144139, guid: e8bbf66526ff54da0a3e9217105cc422, type: 3}
+      propertyPath: currentSong
+      value: 
+      objectReference: {fileID: 11400000, guid: 8b99d99b74c624d0da27c4de762b223d, type: 2}
+    - target: {fileID: 5997406826854144139, guid: e8bbf66526ff54da0a3e9217105cc422, type: 3}
       propertyPath: goodNoteVfx
       value: 
       objectReference: {fileID: 3692374320856600194, guid: 8bfd210828455f4dda05b355cba0de42, type: 3}
@@ -1281,9 +1293,25 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5120165822407510314}
     - target: {fileID: 5997406826854144139, guid: e8bbf66526ff54da0a3e9217105cc422, type: 3}
+      propertyPath: ScoreForGood
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5997406826854144139, guid: e8bbf66526ff54da0a3e9217105cc422, type: 3}
+      propertyPath: ScoreForNice
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5997406826854144139, guid: e8bbf66526ff54da0a3e9217105cc422, type: 3}
       propertyPath: triggerPoint
       value: 
       objectReference: {fileID: 1071766286}
+    - target: {fileID: 5997406826854144139, guid: e8bbf66526ff54da0a3e9217105cc422, type: 3}
+      propertyPath: perfectTiming
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5997406826854144139, guid: e8bbf66526ff54da0a3e9217105cc422, type: 3}
+      propertyPath: ScoreForPerfect
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1366,6 +1394,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 540989276394318452, guid: 8fea7061d5f26434ba0ac5b52a85aa00, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 2301303438737240026, guid: 8fea7061d5f26434ba0ac5b52a85aa00, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1376,7 +1408,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2301303438737240026, guid: 8fea7061d5f26434ba0ac5b52a85aa00, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -8.5
+      value: -8.585
       objectReference: {fileID: 0}
     - target: {fileID: 2301303438737240026, guid: 8fea7061d5f26434ba0ac5b52a85aa00, type: 3}
       propertyPath: m_LocalRotation.w

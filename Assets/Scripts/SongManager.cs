@@ -53,9 +53,9 @@ public class SongManager : MonoBehaviour
         }
     }
     
-    public int ScoreForGood = 10;
-    public int ScoreForNice = 20;
-    public int ScoreForPerfect = 50;
+    public int ScoreForGood = 1;
+    public int ScoreForNice = 2;
+    public int ScoreForPerfect = 3;
     
     private float _scoreMultiplier = 1f;
 
@@ -206,19 +206,29 @@ public class SongManager : MonoBehaviour
             var input = DanceInput.GetInputPressed();
             if (input != InputDir.None)
             {
+                var inputCaptured = input;
                 Debug.Log($"{input.ToString()} at time: {heardTime}");
-                bool inputHit = false;
+                
+                
                 foreach (var note in currentBeatNotes)
-                {
-                    if (input.MatchesNote(note.noteDir))
+                {                
+                    float noteTime = note.beat * beatInterval + (note.subBeat * 0.5f) * beatInterval;
+                    
+                    if (heardTime > noteTime - halfMissTiming && heardTime < noteTime + halfMissTiming && input.MatchesNote(note.noteDir))
                     {
-                        inputHit = true;
+                        inputCaptured &= ~(note.noteDir switch
+                        {
+                            NoteDir.Left => InputDir.Left,
+                            NoteDir.Right => InputDir.Right,
+                            NoteDir.Up => InputDir.Up,
+                            NoteDir.Down => InputDir.Down,
+                        });
                     }
                 }
-                
-                if (!inputHit)
+                if (inputCaptured != InputDir.None)
                     Combo = 0;
             }
+            
             foreach (var note in currentBeatNotes)
             {
                 float noteTime = note.beat * beatInterval + (note.subBeat * 0.5f) * beatInterval;
@@ -226,9 +236,9 @@ public class SongManager : MonoBehaviour
                 if (heardTime > noteTime + halfMissTiming)
                 {
                     TriggerBeat(note.index, BeatHitType.Miss);
-                }else if (heardTime > noteTime - halfMissTiming)
+                }
+                else if (heardTime > noteTime - halfMissTiming)
                 {
-                    
                     if (input.MatchesNote(note.noteDir))
                     {
                         float hitOffset = Mathf.Abs(heardTime - noteTime);
@@ -503,6 +513,8 @@ public class SongManager : MonoBehaviour
                 Instantiate(badNoteVfx, pos+ new Vector3(0, 0.15f,0), noteScript.transform.rotation);
             }
         }
+        
+        Destroy(noteScript.gameObject);
     }
 
     private void PlayMetronomeTick(int currentBeat)
