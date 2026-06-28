@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
@@ -13,6 +14,13 @@ public class Shoppa : MonoBehaviour
     public TextMeshProUGUI MoniesText;
     public Button ExitButton;
 
+    private int selectedHat;
+    public List<HatScOBj> hats;
+    public List<bool> bought;
+    public TextMeshProUGUI PriceText;
+
+    public int SelectedHat => selectedHat;
+
     private void Awake()
     {
         if (Instance == null)
@@ -26,8 +34,29 @@ public class Shoppa : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+
+        for (int i = 0; i < hats.Count; i++)
+        {
+            bool b = PlayerPrefs.GetInt($"Hat{i}", 0) == 1;
+            if (i == 0)
+            {
+                b = true;
+            }
+            bought.Add(b);
+        }
+
+        selectedHat = PlayerPrefs.GetInt($"Hat", 0);
+        UpdateStore();
+
+        int monies = PlayerPrefs.GetInt("Monies", 0);
+
+        if (monies < 0)
+        {
+            monies = 0;
+            PlayerPrefs.SetInt("Monies", 0);
+        }
         
-        MoniesText.text = "MONIES: " + PlayerPrefs.GetInt("Monies", 0);
+        MoniesText.text = "MONIES: " + monies.ToString();
         
         ExitButton.onClick.AddListener(ExitToMainMenu);
         
@@ -59,6 +88,9 @@ public class Shoppa : MonoBehaviour
     {
         PlayerPrefs.Save();
         SceneManager.LoadScene("MainMenuScene");
+        
+        selectedHat = PlayerPrefs.GetInt($"Hat", 0);
+
     }
 
     public void DetractMonies(int price)
@@ -82,5 +114,47 @@ public class Shoppa : MonoBehaviour
         PlayerPrefs.SetInt("Monies", monies);
         MoniesText.text = "MONIES: " + PlayerPrefs.GetInt("Monies", 0);
         PlayerPrefs.Save();
+    }
+
+    public void NextHat()
+    {
+        selectedHat++;
+        selectedHat %= hats.Count;
+        UpdateStore();
+    }
+
+    public void PreviousHat()
+    {
+        selectedHat--;
+        if (selectedHat < 0)
+            selectedHat = hats.Count - 1;
+        UpdateStore();
+    }
+
+    public void BuyHat()
+    {
+        if (!bought[selectedHat])
+        {
+            if (!HasMonies(hats[selectedHat].hatCost))
+            {
+                return;
+            }
+            DetractMonies(hats[selectedHat].hatCost);
+            bought[selectedHat] = true;
+            PlayerPrefs.SetInt($"Hat{selectedHat}", 1);
+            PlayerPrefs.SetInt($"Hat", selectedHat);
+        }
+        else
+        {
+            PlayerPrefs.SetInt($"Hat", selectedHat);
+        }
+        
+        UpdateStore();
+    }
+
+    public void UpdateStore()
+    {
+        bool isSelected = PlayerPrefs.GetInt("Hat", 0) == selectedHat;
+        PriceText.text = bought[selectedHat] ? (isSelected? "Selected" : "Owned") : $"{hats[selectedHat].hatCost}$";
     }
 }
