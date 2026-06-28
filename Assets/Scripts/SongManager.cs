@@ -73,6 +73,7 @@ public class SongManager : MonoBehaviour
     private int _combo = 0;
     private int _highestCombo = 0;
     private float _highestMult = 1.0f;
+    private int _fails = 0;
     
     public Action OnMetronomeTick;
 
@@ -85,6 +86,8 @@ public class SongManager : MonoBehaviour
         set
         {
             _combo = value;
+            if (value == 0)
+                _fails++;
             if (value > _highestCombo)
                 _highestCombo = value;
             if (value >= 90)
@@ -253,7 +256,11 @@ public class SongManager : MonoBehaviour
 
     private void SongEnded()
     {
-        _maxScore = processedNotes.Count * ScoreForPerfect * 10;
+        _maxScore = Mathf.RoundToInt(
+            processedNotes.Count * 
+            ScoreForPerfect * 10 * 
+            (1 + Mathf.Log(_fails) * 0.1f));
+        
         int awardedMonies = 0;
         if (_score >= _maxScore * 0.95f)
         {
