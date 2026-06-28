@@ -61,7 +61,6 @@ public class SongManager : MonoBehaviour
 
     private int _maxScore = -1;
     private string _ScoreRating = "F";
-    private int _moneyPayout = 0;
     
     [Header("Recording Mode")]
     public bool recordingMode;
@@ -88,7 +87,10 @@ public class SongManager : MonoBehaviour
             _combo = value;
             if (value > _highestCombo)
                 _highestCombo = value;
-            _scoreMultiplier = 1f + value / 10f;
+            if (value >= 90)
+                _scoreMultiplier = 10f;
+            else
+                _scoreMultiplier = 1f + value / 10f;
             if (_scoreMultiplier > _highestMult)
                 _highestMult = _scoreMultiplier;
             GameUI.Instance.UpdateCombo(_combo);
@@ -251,7 +253,7 @@ public class SongManager : MonoBehaviour
 
     private void SongEnded()
     {
-        _maxScore = processedNotes.Count * ScoreForPerfect;
+        _maxScore = processedNotes.Count * ScoreForPerfect * 10;
         int awardedMonies = 0;
         if (_score >= _maxScore * 0.95f)
         {
