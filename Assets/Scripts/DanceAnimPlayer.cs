@@ -20,22 +20,22 @@ public class DanceAnimPlayer : MonoBehaviour
             anim.SetTrigger("ComboRightLeft");
         }
         
-        if ((input & InputDir.Right) != 0)
+        else if ((input & InputDir.Right) != 0)
         {
             anim.SetTrigger("DanceInputRight");
         }
         
-        if ((input & InputDir.Left) != 0)
+        else if ((input & InputDir.Left) != 0)
         {
             anim.SetTrigger("DanceInputLeft");
         }
         
-        if ((input & InputDir.Up) != 0)
+        else if ((input & InputDir.Up) != 0)
         {
             anim.SetTrigger("DanceInputUp");
         }
 
-        if ((input & InputDir.Down) != 0)
+        else if ((input & InputDir.Down) != 0)
         {
             anim.SetTrigger("DanceInputDown");
         }
