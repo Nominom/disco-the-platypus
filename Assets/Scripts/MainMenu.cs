@@ -14,12 +14,14 @@ public class MainMenu : MonoBehaviour
     public Button ShoppaButton;
     public Button SettingsButton;
     public TMP_Dropdown SongDropdown;
-    private List<SongScObj> Songs;
+    public List<SongScObj> Songs;
     public string GameSceneName = "GameScene";
     public List<FlagScObj> Flags;
     private FlagScObj currentFlag;
     public int flagIndex;
     public Image FlagSprite;
+    public TextMeshProUGUI songTitle;
+    private int songIndex;
 
     private void Start()
     {
@@ -33,15 +35,17 @@ public class MainMenu : MonoBehaviour
 
         SongDropdown.AddOptions(new List<string> { "Easy", "Medium", "Hard" });
         SongDropdown.options.Clear();
-        var songs = Resources.LoadAll("Songs");
-        Songs = songs.Select(s => (SongScObj)s).ToList();
-        foreach (var song in Songs)
-        {
-            SongDropdown.options.Add(new TMP_Dropdown.OptionData(song.songName));
-        }
+        // var songs = Resources.LoadAll("Songs");
+        // Songs = songs.Select(s => (SongScObj)s).ToList();
+        // foreach (var song in Songs)
+        // {
+        //     SongDropdown.options.Add(new TMP_Dropdown.OptionData(song.songName));
+        // }
         
         SongDropdown.onValueChanged.AddListener(v => ChangeCurrentSong(Songs[v]));
         ChangeCurrentSong(Songs[0]);
+        
+        songTitle.text = Songs[songIndex].songName;
     }
 
     private void SettingsMenu()
@@ -102,5 +106,33 @@ public class MainMenu : MonoBehaviour
     {
         currentFlag = Flags[flagIndex];
         FlagSprite.sprite = currentFlag.FlagSprite;
+    }
+
+    public void NextSong()
+    {
+        songIndex++;
+        if (songIndex >= Songs.Count)
+        {
+            songIndex = 0;
+        }
+
+        SwitchSong();
+    }
+
+    public void PreviousSong()
+    {
+        songIndex--;
+        if (songIndex < 0)
+        {
+            songIndex = Songs.Count - 1;
+        }
+
+        SwitchSong();
+    }
+
+    private void SwitchSong()
+    {
+        ChangeCurrentSong(Songs[songIndex]);
+        songTitle.text = SongSelector.Instance.CurrentSong.songName;
     }
 }
