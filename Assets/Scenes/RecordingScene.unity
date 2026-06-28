@@ -823,7 +823,7 @@ PrefabInstance:
     - target: {fileID: 5997406826854144139, guid: e8bbf66526ff54da0a3e9217105cc422, type: 3}
       propertyPath: currentSong
       value: 
-      objectReference: {fileID: 11400000, guid: 27a67b178a33b41d688f196b2f8583ac, type: 2}
+      objectReference: {fileID: 11400000, guid: 8b99d99b74c624d0da27c4de762b223d, type: 2}
     - target: {fileID: 5997406826854144139, guid: e8bbf66526ff54da0a3e9217105cc422, type: 3}
       propertyPath: noteSpawner
       value: 
