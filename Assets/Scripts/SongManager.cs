@@ -66,6 +66,8 @@ public class SongManager : MonoBehaviour
     public bool recordingMode;
     [Range(0.25f, 1.5f)]
     public float recordingSpeed = 1f;
+
+    public bool recordHalfNotes = false;
     private InputAction playPauseAction;
     private InputAction eraseAction;
     private InputAction rewindAction;
@@ -347,6 +349,10 @@ public class SongManager : MonoBehaviour
             int currentSubBeatHeardRounded = Mathf.FloorToInt(heardTime / (beatInterval * 0.5f) + 0.5f);
             int currentBeatHeardRounded = currentSubBeatHeardRounded / 2;
             int currentSubBeatHeard = currentSubBeatHeardRounded % 2;
+            if (!recordHalfNotes)
+            {
+                currentSubBeatHeard = 0;
+            }
 
             bool spawned;
             do
