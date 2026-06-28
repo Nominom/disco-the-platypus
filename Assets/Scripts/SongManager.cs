@@ -52,7 +52,9 @@ public class SongManager : MonoBehaviour
             _score = value;
         }
     }
-    
+
+    public int Combo => _combo;
+
     public int ScoreForGood = 1;
     public int ScoreForNice = 2;
     public int ScoreForPerfect = 3;
@@ -78,30 +80,6 @@ public class SongManager : MonoBehaviour
     private int _fails = 0;
     
     public Action OnMetronomeTick;
-
-    public int Combo
-    {
-        get
-        {
-            return _combo;
-        }
-        set
-        {
-            _combo = value;
-            if (value == 0)
-                _fails++;
-            if (value > _highestCombo)
-                _highestCombo = value;
-            if (value >= 90)
-                _scoreMultiplier = 10f;
-            else
-                _scoreMultiplier = 1f + value / 10f;
-            if (_scoreMultiplier > _highestMult)
-                _highestMult = _scoreMultiplier;
-            GameUI.Instance.UpdateCombo(_combo);
-            GameUI.Instance.UpdateMultiplier(_scoreMultiplier.ToString("F"));
-        }
-    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -226,7 +204,7 @@ public class SongManager : MonoBehaviour
                     }
                 }
                 if (inputCaptured != InputDir.None)
-                    Combo = 0;
+                    UpdateCombo(false);
             }
             
             foreach (var note in currentBeatNotes)
@@ -268,32 +246,41 @@ public class SongManager : MonoBehaviour
 
     private void SongEnded()
     {
-        _maxScore = Mathf.RoundToInt(
-            processedNotes.Count * 
-            ScoreForPerfect * 10);
+        _maxScore = 0;
+        float maxMultiplier = 1f;
+        for (int i = 0; i < currentSong.notes.Count; i++)
+        {
+            _maxScore += Mathf.RoundToInt(ScoreForPerfect * maxMultiplier);
+            maxMultiplier += 0.1f;
+        }
         
         int awardedMonies = 0;
-        if (_score >= _maxScore * 0.95f)
+        if (_score >= _maxScore * 0.9f)
         {
-            _ScoreRating = "S";
+            _ScoreRating = "SS";
             awardedMonies = 10000;
         }
         else if (_score >= _maxScore * 0.8f)
         {
-            _ScoreRating = "A";
+            _ScoreRating = "S";
             awardedMonies = 8000;
         }
-        else if (_score >= _maxScore * 0.7f)
+        else if (_score >= _maxScore * 0.6f)
+        {
+            _ScoreRating = "A";
+            awardedMonies = 6000;
+        }
+        else if (_score >= _maxScore * 0.3f)
         {
             _ScoreRating = "B";
-            awardedMonies = 5000;
+            awardedMonies = 3000;
         }
-        else if (_score >= _maxScore * 0.6f)
+        else if (_score >= _maxScore * 0.15f)
         {
             _ScoreRating = "C";
             awardedMonies = 2500;
         }
-        else if (_score >= _maxScore * 0.5f)
+        else if (_score >= _maxScore * 0.075f)
         {
             _ScoreRating = "D";
             awardedMonies = 1000;
@@ -475,18 +462,18 @@ public class SongManager : MonoBehaviour
         {
             case BeatHitType.Good:
                 Score += Mathf.RoundToInt(ScoreForGood * _scoreMultiplier);
-                Combo++;
+                UpdateCombo(true);
                 break;
             case BeatHitType.Nice:
                 Score += Mathf.RoundToInt(ScoreForNice * _scoreMultiplier);
-                Combo += 1;
+                UpdateCombo(true);
                 break;
             case BeatHitType.Perfect:
                 Score += Mathf.RoundToInt(ScoreForPerfect * _scoreMultiplier);
-                Combo += 1;
+                UpdateCombo(true);
                 break;
             case BeatHitType.Miss:
-                Combo = 0;
+                UpdateCombo(false);
                 break;
             default:
                 break;
@@ -515,6 +502,28 @@ public class SongManager : MonoBehaviour
         }
         
         Destroy(noteScript.gameObject);
+    }
+
+    private void UpdateCombo(bool success)
+    {
+        if (!success)
+        {
+            _combo = 0;
+            _scoreMultiplier = 1f;
+            _fails++;
+        }
+        else
+        {
+            _combo++;
+            _scoreMultiplier += 0.1f;
+            if (_combo > _highestCombo)
+                _highestCombo = _combo;
+            if (_scoreMultiplier > _highestMult)
+                _highestMult = _scoreMultiplier;
+        }
+        
+        GameUI.Instance.UpdateCombo(_combo);
+        GameUI.Instance.UpdateMultiplier(_scoreMultiplier.ToString("F"));
     }
 
     private void PlayMetronomeTick(int currentBeat)
