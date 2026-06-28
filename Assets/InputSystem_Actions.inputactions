@@ -559,8 +559,30 @@
                 },
                 {
                     "name": "",
+                    "id": "022e565f-59fb-4ed2-80e9-ce1feec3283b",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DanceInputLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "8ab341b6-7801-48e1-afce-8b9c7e45076d",
                     "path": "<Keyboard>/rightArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DanceInputRight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f41a8a0e-c30c-42b0-a428-bf87fec73b53",
+                    "path": "<Gamepad>/buttonEast",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -581,8 +603,30 @@
                 },
                 {
                     "name": "",
+                    "id": "7e9a420d-2eae-4491-b260-0d279ea4c5ca",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DanceInputUp",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "cf972c8b-71d3-4832-9835-1a1099a230aa",
                     "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DanceInputDown",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "164d1414-0148-470d-ac83-2e85587d4426",
+                    "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -616,9 +660,20 @@
                     "name": "",
                     "id": "9070a2f3-2d47-4637-ae4b-c85b549793f0",
                     "path": "<Keyboard>/r",
-                    "interactions": "",
+                    "interactions": "Hold",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
+                    "action": "Rewind",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c386fc38-40d4-4d23-989e-8de03638e631",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
                     "action": "Rewind",
                     "isComposite": false,
                     "isPartOfComposite": false
