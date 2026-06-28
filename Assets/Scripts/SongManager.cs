@@ -73,6 +73,7 @@ public class SongManager : MonoBehaviour
     private InputAction playPauseAction;
     private InputAction eraseAction;
     private InputAction rewindAction;
+    private InputAction metronomeAction;
 
     private int _combo = 0;
     private int _highestCombo = 0;
@@ -90,6 +91,7 @@ public class SongManager : MonoBehaviour
         playPauseAction = InputSystem.actions.FindAction("Play");
         eraseAction = InputSystem.actions.FindAction("Erase");
         rewindAction = InputSystem.actions.FindAction("Rewind");
+        metronomeAction = InputSystem.actions.FindAction("Metronome");
         
         metronomeEnabled = PlayerPrefs.GetInt("Metronome", 1) == 1;
 
@@ -109,6 +111,15 @@ public class SongManager : MonoBehaviour
                 StartCoroutine(PlaySong(currentSong));
         }
         
+    }
+
+    void Update()
+    {
+        if (metronomeAction.WasPressedThisFrame())
+        {
+            metronomeEnabled = !metronomeEnabled;
+            PlayerPrefs.SetInt("Metronome", metronomeEnabled ? 1 : 0);
+        }
     }
 
     private IEnumerator PlaySong(SongScObj song)

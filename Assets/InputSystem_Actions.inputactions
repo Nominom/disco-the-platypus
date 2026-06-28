@@ -158,6 +158,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Metronome",
+                    "type": "Button",
+                    "id": "11f27a0f-66c0-40b0-a8cc-b896f8683adb",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -563,6 +572,17 @@
                     "path": "<Gamepad>/buttonWest",
                     "interactions": "",
                     "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "DanceInputLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "86b3a5a8-8b6f-45fb-8ae2-92c0ae48de05",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
                     "groups": "",
                     "action": "DanceInputLeft",
                     "isComposite": false,
@@ -583,6 +603,17 @@
                     "name": "",
                     "id": "f41a8a0e-c30c-42b0-a428-bf87fec73b53",
                     "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "DanceInputRight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8a51f8e3-0d62-4029-b63b-cfd8984e4620",
+                    "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -607,6 +638,17 @@
                     "path": "<Gamepad>/buttonNorth",
                     "interactions": "",
                     "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "DanceInputUp",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "89375eb4-43cd-48b8-bc60-15cb1d6ceeb9",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
                     "groups": "",
                     "action": "DanceInputUp",
                     "isComposite": false,
@@ -627,6 +669,17 @@
                     "name": "",
                     "id": "164d1414-0148-470d-ac83-2e85587d4426",
                     "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "DanceInputDown",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3de66705-ae93-41de-af69-d1f621dbe829",
+                    "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -673,7 +726,7 @@
                     "path": "<Gamepad>/rightTrigger",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": ";Gamepad",
                     "action": "Rewind",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -686,6 +739,39 @@
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
                     "action": "AnyKey",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "499697aa-50f2-4a3e-865e-67e452a7162b",
+                    "path": "<Touchscreen>/Press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Touch",
+                    "action": "AnyKey",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f020d712-62bb-4e39-ac9f-87297d869be6",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "AnyKey",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f3649417-b8d3-41a5-b048-213965481e0a",
+                    "path": "<Keyboard>/m",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Metronome",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
