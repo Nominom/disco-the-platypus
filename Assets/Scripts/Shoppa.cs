@@ -120,6 +120,7 @@ public class Shoppa : MonoBehaviour
     {
         selectedHat++;
         selectedHat %= hats.Count;
+        UpdateStore();
     }
 
     public void PreviousHat()
@@ -127,6 +128,7 @@ public class Shoppa : MonoBehaviour
         selectedHat--;
         if (selectedHat < 0)
             selectedHat = hats.Count - 1;
+        UpdateStore();
     }
 
     public void BuyHat()
@@ -152,6 +154,7 @@ public class Shoppa : MonoBehaviour
 
     public void UpdateStore()
     {
-        PriceText.text = bought[selectedHat] ? "Owned" : $"{hats[selectedHat].hatCost}$";
+        bool isSelected = PlayerPrefs.GetInt("Hat", 0) == selectedHat;
+        PriceText.text = bought[selectedHat] ? (isSelected? "Selected" : "Owned") : $"{hats[selectedHat].hatCost}$";
     }
 }
