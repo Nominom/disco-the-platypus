@@ -82,6 +82,8 @@ public class SongManager : MonoBehaviour
     
     public Action OnMetronomeTick;
 
+    public InputDir extraInput;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -120,6 +122,11 @@ public class SongManager : MonoBehaviour
             metronomeEnabled = !metronomeEnabled;
             PlayerPrefs.SetInt("Metronome", metronomeEnabled ? 1 : 0);
         }
+    }
+
+    private void LateUpdate()
+    {
+        extraInput = InputDir.None; 
     }
 
     private IEnumerator PlaySong(SongScObj song)
@@ -193,6 +200,8 @@ public class SongManager : MonoBehaviour
             NoteDef[] currentBeatNotes = song.notes.Where(x => (x.beat == currentBeat || x.beat == currentBeat + 1) && !processedNotes.Contains(x.index)).ToArray();
 
             var input = DanceInput.GetInputPressed();
+            input |= extraInput;
+            
             if (input != InputDir.None)
             {
                 var inputCaptured = input;
@@ -384,6 +393,8 @@ public class SongManager : MonoBehaviour
             } while (spawned);
             
             var input = DanceInput.GetInputPressed();
+            input |= extraInput;
+            
             if (input != InputDir.None)
             {
                 Debug.Log($"{input.ToString()} at time: {heardTime} on beat {currentBeatHeardRounded}");
@@ -568,4 +579,15 @@ public class SongManager : MonoBehaviour
     {
         return Score;
     }
+
+    public void LeftButton()
+    {
+        extraInput |= InputDir.Left;
+        Debug.Log("Left");
+    }
+
+    public void RightButton() => extraInput |= InputDir.Right;
+    public void UpButton() => extraInput |= InputDir.Up;
+    public void DownButton() => extraInput |= InputDir.Down;
+    
 }

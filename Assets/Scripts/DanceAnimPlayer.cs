@@ -14,6 +14,7 @@ public class DanceAnimPlayer : MonoBehaviour
     private void Update()
     {
         var input = DanceInput.GetInputPressed();
+        input |= SongManager.Instance.extraInput;
 
         if ((input & (InputDir.Left | InputDir.Right)) == (InputDir.Left | InputDir.Right))
         {
