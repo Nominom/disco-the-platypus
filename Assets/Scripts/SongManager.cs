@@ -260,8 +260,7 @@ public class SongManager : MonoBehaviour
     {
         _maxScore = Mathf.RoundToInt(
             processedNotes.Count * 
-            ScoreForPerfect * 10 * 
-            (1 + Mathf.Log(_fails) * 0.1f));
+            ScoreForPerfect * 10);
         
         int awardedMonies = 0;
         if (_score >= _maxScore * 0.95f)
